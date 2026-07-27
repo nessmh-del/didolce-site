@@ -108,19 +108,27 @@
     });
   }
 
-  /* ---------- Hero vidéo : autoplay robuste (iOS / mode éco) ---------- */
+  /* ---------- Hero vidéo : toujours animée (GIF de secours si autoplay bloqué) ---------- */
   (function () {
-    const v = document.querySelector(".hero-video");
+    const v = $("#heroVideo"), gif = $("#heroGif");
     if (!v) return;
     v.muted = true; v.setAttribute("muted", "");
+    const showGif = () => { if (gif) gif.hidden = false; };
+    const hideGif = () => { if (gif) gif.hidden = true; };
     const tryPlay = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
-    const evts = ["touchstart", "pointerdown", "click", "scroll", "keydown"];
-    const kick = () => { tryPlay(); if (!v.paused) evts.forEach((e) => removeEventListener(e, kick)); };
+    // dès qu'une vraie lecture démarre, on masque le GIF (qualité vidéo prioritaire)
+    v.addEventListener("playing", hideGif);
+    v.addEventListener("pause", showGif);
     tryPlay();
+    // si la vidéo n'a pas réellement démarré peu après (mode éco / restriction OS),
+    // le GIF prend le relais immédiatement — aucune interaction requise
+    setTimeout(() => { if (v.paused) showGif(); }, 500);
+    setTimeout(() => { if (v.paused) showGif(); }, 1800);
     v.addEventListener("canplay", tryPlay);
     v.addEventListener("loadeddata", tryPlay);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) tryPlay(); });
-    evts.forEach((e) => addEventListener(e, kick, { passive: true }));
+    ["touchstart", "pointerdown", "click", "scroll", "keydown"].forEach((e) =>
+      addEventListener(e, tryPlay, { passive: true, once: true }));
   })();
 
   /* ---------- Showcase produits (coverflow symétrique) ---------- */
