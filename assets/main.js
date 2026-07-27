@@ -108,6 +108,21 @@
     });
   }
 
+  /* ---------- Hero vidéo : autoplay robuste (iOS / mode éco) ---------- */
+  (function () {
+    const v = document.querySelector(".hero-video");
+    if (!v) return;
+    v.muted = true; v.setAttribute("muted", "");
+    const tryPlay = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+    const evts = ["touchstart", "pointerdown", "click", "scroll", "keydown"];
+    const kick = () => { tryPlay(); if (!v.paused) evts.forEach((e) => removeEventListener(e, kick)); };
+    tryPlay();
+    v.addEventListener("canplay", tryPlay);
+    v.addEventListener("loadeddata", tryPlay);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) tryPlay(); });
+    evts.forEach((e) => addEventListener(e, kick, { passive: true }));
+  })();
+
   /* ---------- Showcase produits (coverflow symétrique) ---------- */
   (function () {
     const stage = $("#scStage"); if (!stage) return;

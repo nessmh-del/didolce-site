@@ -384,10 +384,10 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
   .hero-actions .btn{width:100%}
 
   /* SHOWCASE — compact & centré, pièce maîtresse */
-  .showcase-head{margin-bottom:.5rem}
-  .showcase-stage{height:min(36vh,255px)}
-  .sc-card{width:min(60%,220px)}
-  .showcase-caption{margin-top:0}
+  .showcase-head{margin-bottom:2.4rem}
+  .showcase-stage{height:min(34vh,240px)}
+  .sc-card{width:min(54%,195px)}
+  .showcase-caption{margin-top:.8rem}
   .sc-name{font-size:clamp(1.55rem,6.4vw,2.1rem);min-height:2.3em}
   .sc-desc{font-size:1rem;min-height:3.4em;max-width:34ch}
   .showcase-controls{margin-top:1.1rem}
