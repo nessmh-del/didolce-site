@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "16";
-const JS_V = "16";
+const CSS_V = "17";
+const JS_V = "17";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -85,6 +85,7 @@ function header(activeFile) {
       <svg class="logo"><use href="#didolce-logo"></use></svg>
     </a>
     <div class="nav-right">
+      <a class="nav-cat" href="catalogue.html" data-magnetic>Recevoir le catalogue</a>
       <a class="nav-call" href="tel:+33956597257" data-magnetic aria-label="Appeler le +33 9 56 59 72 57">
         <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M6.6 2.5 4 3.2c-.6.2-1 .8-1 1.5C3 12.5 9.5 19 16.3 19c.7 0 1.3-.4 1.5-1l.7-2.6c.2-.6-.1-1.2-.6-1.5l-2.8-1.2c-.5-.2-1-.1-1.4.3l-1 1c-2-.9-3.6-2.5-4.5-4.5l1-1c.4-.4.5-.9.3-1.4L8 3.1c-.3-.5-.9-.8-1.4-.6Z"/></svg>
         <span class="nav-call-num">+33 9 56 59 72 57</span>

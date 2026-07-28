@@ -127,10 +127,12 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .nav.scrolled{padding-block:1rem}
 .nav.scrolled .logo{height:34px}
 .nav-right{display:flex;align-items:center;gap:1.4rem}
-.nav-call{display:inline-flex;align-items:center;gap:.5rem;padding:.62em 1.15em;border-radius:100px;
+.nav-cat{display:inline-flex;align-items:center;padding:.62em 1.25em;border-radius:100px;white-space:nowrap;
   background:var(--gold);color:var(--ink);font-family:var(--sans);font-weight:500;font-size:.82rem;letter-spacing:.02em;
-  box-shadow:0 8px 22px -10px rgba(192,151,90,.9);transition:background .4s var(--ease),box-shadow .4s}
-.nav-call:hover{background:var(--gold-l);box-shadow:0 12px 26px -10px rgba(192,151,90,1)}
+  box-shadow:0 8px 22px -10px rgba(192,151,90,.9);transition:background .4s var(--ease),box-shadow .4s,transform .4s}
+.nav-cat:hover{background:var(--gold-l);box-shadow:0 12px 26px -10px rgba(192,151,90,1)}
+.nav-call{display:inline-flex;align-items:center;gap:.4rem;opacity:.85;transition:opacity .3s,color .3s}
+.nav-call:hover{opacity:1;color:var(--gold-l)}
 .nav-call svg{flex:none}
 .nav-wa{display:inline-flex;align-items:center;opacity:.85;transition:opacity .3s,color .3s}
 .nav-wa:hover{opacity:1;color:var(--gold-l)}
@@ -394,9 +396,9 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
   .section{padding-block:clamp(3.2rem,11vw,4.4rem)}
   h2.display{font-size:clamp(2.05rem,8.4vw,2.8rem)}
   .nav{padding:1.05rem var(--pad)}
-  .nav-right{gap:.85rem}
-  .nav-call-num{display:none}
-  .nav-call{padding:.62em;border-radius:50%}
+  .nav-right{gap:.7rem}
+  .nav-call,.nav-wa{display:none}
+  .nav-cat{padding:.6em 1em;font-size:.74rem}
 
   /* HERO — immersif, CTA pleine largeur */
   .hero-inner{padding-bottom:clamp(2.6rem,9vh,4.2rem)}
