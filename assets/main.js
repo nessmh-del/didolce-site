@@ -108,6 +108,21 @@
     });
   }
 
+  /* ---------------- Formulaire Catalogue → email ---------------- */
+  const catForm = $("#catalogueForm");
+  if (catForm) {
+    catForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!catForm.checkValidity()) return catForm.reportValidity();
+      const g = (n) => (catForm.querySelector(`[name="${n}"]`)?.value || "").trim();
+      const subject = `Demande de catalogue — ${g("company") || g("name")}`;
+      const body = `Bonjour,\n\nJe souhaite recevoir le catalogue Di Dolce Desserts.\n\nNom : ${g("name")}\nSociété : ${g("company") || "—"}\nEmail : ${g("email")}\nTéléphone : ${g("phone") || "—"}\n\nMessage : ${g("message") || "—"}`;
+      window.location.href = `mailto:contact@didolcedesserts.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const ok = $("#catalogueSuccess");
+      if (ok) { ok.hidden = false; if (window.gsap && !reduce) gsap.fromTo(ok, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: .5 }); }
+    });
+  }
+
   /* ---------- Hero vidéo : toujours animée (GIF de secours si autoplay bloqué) ---------- */
   (function () {
     const v = $("#heroVideo"), gif = $("#heroGif");
