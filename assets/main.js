@@ -131,62 +131,49 @@
       addEventListener(e, tryPlay, { passive: true, once: true }));
   })();
 
-  /* ---------- Showcase produits (coverflow symétrique) ---------- */
+  /* ---------- Nos parfums — grille swipable (drag souris + tactile) ---------- */
   (function () {
-    const stage = $("#scStage"); if (!stage) return;
-    const cards = $$(".sc-card", stage); const N = cards.length; if (!N) return;
-    const nameEl = $("#scName"), descEl = $("#scDesc"), noteEl = $("#scNote"), idxEl = $("#scIdx"), totEl = $("#scTot");
-    if (totEl) totEl.textContent = N;
-    // niveaux par distance |offset| au centre — symétrique gauche/droite
-    const LV = [
-      { s: 1,   o: 1,   z: 50, b: 0,   xf: 0   },
-      { s: .62, o: .5,  z: 40, b: 1,   xf: .30 },
-      { s: .42, o: .18, z: 30, b: 2.4, xf: .46 },
-    ];
-    const HIDDEN = { s: .38, o: 0, z: 20, b: 3, xf: .5 };
-    let active = 0, timer;
-    const signed = (i) => { let o = i - active; if (o > N / 2) o -= N; if (o < -N / 2) o += N; return o; };
-    const apply = (c, off, W, animate) => {
-      const lv = LV[Math.abs(off)] || HIDDEN;
-      const x = Math.sign(off) * W * lv.xf;
-      if (window.gsap && !reduce) {
-        const props = { x, xPercent: -50, yPercent: -50, scale: lv.s, opacity: lv.o, filter: `blur(${lv.b}px)`, zIndex: lv.z };
-        animate ? gsap.to(c, { ...props, duration: .8, ease: "power3.out", overwrite: "auto" }) : gsap.set(c, props);
-      } else {
-        c.style.transform = `translate(-50%,-50%) translateX(${x}px) scale(${lv.s})`;
-        c.style.opacity = lv.o; c.style.filter = `blur(${lv.b}px)`; c.style.zIndex = lv.z;
-      }
-      c.style.pointerEvents = lv.o > .04 ? "auto" : "none";
-    };
-    const setInfo = (d, animate) => {
-      const nm = d.dataset.name, de = d.dataset.desc, no = d.dataset.note;
-      if (window.gsap && animate && !reduce) {
-        gsap.to([nameEl, descEl, noteEl], { opacity: 0, y: -8, duration: .22, onComplete: () => {
-          nameEl.textContent = nm; descEl.textContent = de; noteEl.textContent = no;
-          gsap.fromTo([nameEl, descEl, noteEl], { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .45, stagger: .05 });
-        } });
-      } else { nameEl.textContent = nm; descEl.textContent = de; noteEl.textContent = no; }
-    };
-    const layout = (animate) => {
-      const W = stage.clientWidth || stage.offsetWidth || 1;
-      cards.forEach((c, i) => apply(c, signed(i), W, animate));
-      setInfo(cards[active], animate); if (idxEl) idxEl.textContent = active + 1;
-    };
-    const go = (dir) => { active = (active + dir + N) % N; layout(true); restart(); };
-    const restart = () => { clearInterval(timer); if (!reduce) timer = setInterval(() => go(1), 4600); };
-    $("#scNext")?.addEventListener("click", () => go(1));
-    $("#scPrev")?.addEventListener("click", () => go(-1));
-    cards.forEach((c, i) => c.addEventListener("click", () => { if (i !== active) { active = i; layout(true); restart(); } }));
-    // swipe tactile (mobile)
-    let sx = 0, sy = 0, sw = false;
-    stage.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; sw = false; }, { passive: true });
-    stage.addEventListener("touchmove", (e) => {
-      if (sw) return;
-      const dx = e.touches[0].clientX - sx, dy = e.touches[0].clientY - sy;
-      if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) { sw = true; go(dx < 0 ? 1 : -1); }
+    const row = $("#flRow"); if (!row) return;
+    const dotsWrap = $("#flDots");
+    const cards = $$(".fl-card", row);
+
+    cards.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.setAttribute("aria-label", "Parfum " + (i + 1));
+      if (i === 0) b.classList.add("on");
+      b.addEventListener("click", () => {
+        row.scrollTo({ left: cards[i].offsetLeft - row.offsetLeft, behavior: "smooth" });
+      });
+      dotsWrap.appendChild(b);
+    });
+    const dots = $$("button", dotsWrap);
+    let tick;
+    row.addEventListener("scroll", () => {
+      clearTimeout(tick);
+      tick = setTimeout(() => {
+        let closest = 0, min = Infinity;
+        cards.forEach((c, i) => {
+          const d = Math.abs(c.offsetLeft - row.offsetLeft - row.scrollLeft);
+          if (d < min) { min = d; closest = i; }
+        });
+        dots.forEach((d, i) => d.classList.toggle("on", i === closest));
+      }, 80);
     }, { passive: true });
-    let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => layout(false), 150); });
-    layout(false); restart();
+
+    let isDown = false, startX = 0, startScroll = 0, moved = false;
+    row.addEventListener("mousedown", (e) => {
+      isDown = true; moved = false; row.classList.add("dragging");
+      startX = e.pageX; startScroll = row.scrollLeft;
+    });
+    addEventListener("mouseup", () => { isDown = false; row.classList.remove("dragging"); });
+    addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      row.scrollLeft = startScroll - dx;
+      e.preventDefault();
+    });
+    row.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
   })();
 
   /* ================= GSAP ================= */
@@ -257,7 +244,7 @@
   if (mq) gsap.to(mq, { xPercent: -50, duration: 26, ease: "none", repeat: -1 });
 
   /* Nav clair/foncé selon la section sous le header */
-  gsap.utils.toArray(".promise,.engagement,.why,.maison,.showcase").forEach((s) => {
+  gsap.utils.toArray(".promise,.engagement,.why,.maison,.showcase,.tiramisu-intro").forEach((s) => {
     ScrollTrigger.create({ trigger: s, start: "top 64px", end: "bottom 64px",
       onToggle: (self) => nav.classList.toggle("light", self.isActive) });
   });
