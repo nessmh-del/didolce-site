@@ -121,10 +121,12 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
    NAV
    ========================================================================= */
 .nav{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);display:flex;align-items:center;justify-content:space-between;
-  padding:1.5rem var(--pad);color:var(--cream);mix-blend-mode:normal;transition:padding .5s var(--ease),color .5s}
-.nav.light{color:var(--ink)}
+  padding:1.5rem var(--pad);color:var(--cream);mix-blend-mode:normal;
+  background:linear-gradient(180deg,rgba(23,17,12,.6) 0%,rgba(23,17,12,.32) 75%,rgba(23,17,12,0) 100%);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:padding .5s var(--ease),color .5s,background .5s var(--ease)}
 .logo{height:40px;width:auto;aspect-ratio:496.03/170.81;color:currentColor;transition:height .5s var(--ease)}
-.nav.scrolled{padding-block:1rem}
+.nav.scrolled{padding-block:1rem;background:rgba(23,17,12,.74)}
 .nav.scrolled .logo{height:34px}
 .nav-right{display:flex;align-items:center;gap:1.4rem}
 .nav-cat{display:inline-flex;align-items:center;padding:.62em 1.25em;border-radius:100px;white-space:nowrap;
