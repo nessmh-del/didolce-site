@@ -333,7 +333,8 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .contact-cta .lead{margin-inline:auto}
 .contact-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:2.4rem 0 1rem}
 .contact-cta .contact-list{max-width:540px;margin:2.4rem auto 0;text-align:left}
-.contact-info h2{margin:.4rem 0 1.4rem}
+.contact-info h1,.contact-info h2{margin:.4rem 0 1.4rem}
+.contact-info .contact-actions{justify-content:flex-start}
 .contact-list{margin-top:2.4rem;display:grid;gap:0}
 .contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--line-d);align-items:baseline}
 .ci-k{color:var(--gold-l)}

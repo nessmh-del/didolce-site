@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "21";
-const JS_V = "21";
+const CSS_V = "22";
+const JS_V = "22";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -571,43 +571,34 @@ ${sectorsHtml}
 {
   const body = `
     <section class="section contact">
-      <div class="wrap contact-cta">
-        <p class="sec-index reveal-fade">Contact</p>
-        <h1 class="display reveal-lines">Parlons de vos desserts.</h1>
-        <p class="lead reveal-fade">Une question, un projet en marque privée, une demande de tarifs professionnels ? Un appel ou un message WhatsApp suffit — nous vous répondons rapidement.</p>
-        <div class="contact-actions reveal-fade">
-          <a class="btn btn-gold" href="tel:+33956597257" data-magnetic>Appeler le +33 9 56 59 72 57</a>
-          <a class="btn btn-line" href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>Écrire sur WhatsApp</a>
-        </div>
-        <ul class="contact-list reveal-fade">
-          <li><span class="ci-k">Bureau &amp; usine</span><span>22 route Saint Pierre, 27430 Porte de Seine, France</span></li>
-          <li><span class="ci-k">Téléphone</span><a href="tel:+33956597257" data-magnetic>+33 9 56 59 72 57</a></li>
-          <li><span class="ci-k">WhatsApp</span><a href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>+33 7 68 40 85 25</a></li>
-          <li><span class="ci-k">Email</span><a href="mailto:contact@didolcedesserts.com" data-magnetic>contact@didolcedesserts.com</a></li>
-        </ul>
-      </div>
-    </section>
-    <section class="section cat-hero">
-      <div class="wrap contact-cta">
-        <p class="sec-index reveal-fade">Catalogue</p>
-        <h2 class="display reveal-lines">Recevez notre catalogue complet.</h2>
-        <p class="lead reveal-fade">Renseignez vos coordonnées ci-dessous : un email pré-rempli s'ouvrira vers notre équipe, qui vous enverra le catalogue par retour avec nos tarifs professionnels.</p>
-      </div>
-    </section>
-    <section class="section cat-form-section">
-      <div class="wrap cat-wrap">
-        <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
-          <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
-          <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
-          <div class="field-row">
-            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
-            <div class="field"><label for="c-phone">Téléphone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" /></div>
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <p class="sec-index reveal-fade">Contact</p>
+          <h1 class="display reveal-lines">Parlons de vos desserts.</h1>
+          <p class="lead reveal-fade">Une question, un projet en marque privée, une demande de tarifs professionnels ? Un appel ou un message WhatsApp suffit — nous vous répondons rapidement.</p>
+          <div class="contact-actions reveal-fade">
+            <a class="btn btn-gold" href="tel:+33956597257" data-magnetic>Appeler le +33 9 56 59 72 57</a>
+            <a class="btn btn-line" href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>Écrire sur WhatsApp</a>
           </div>
-          <div class="field"><label for="c-msg">Votre besoin (optionnel)</label><textarea id="c-msg" name="message" rows="3" placeholder="Volumes, marque privée, secteur d'activité…"></textarea></div>
-          <label class="rgpd"><input type="checkbox" name="rgpd" required /><span>J'accepte d'être recontacté(e) au sujet de ma demande de catalogue.</span></label>
-          <button type="submit" class="btn btn-gold btn-block" data-magnetic>Recevoir le catalogue par email</button>
-          <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
-          <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
+          <ul class="contact-list reveal-fade">
+            <li><span class="ci-k">Bureau &amp; usine</span><span>22 route Saint Pierre, 27430 Porte de Seine, France</span></li>
+            <li><span class="ci-k">Téléphone</span><a href="tel:+33956597257" data-magnetic>+33 9 56 59 72 57</a></li>
+            <li><span class="ci-k">WhatsApp</span><a href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>+33 7 68 40 85 25</a></li>
+            <li><span class="ci-k">Email</span><a href="mailto:contact@didolcedesserts.com" data-magnetic>contact@didolcedesserts.com</a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal-fade" id="leadForm" novalidate>
+          <div class="field"><label for="l-name">Nom &amp; prénom</label><input id="l-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
+          <div class="field"><label for="l-company">Société</label><input id="l-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
+          <div class="field-row">
+            <div class="field"><label for="l-email">Email</label><input id="l-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
+            <div class="field"><label for="l-phone">Téléphone</label><input id="l-phone" name="phone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" /></div>
+          </div>
+          <div class="field"><label for="l-msg">Message</label><textarea id="l-msg" name="message" rows="3" placeholder="Votre demande…"></textarea></div>
+          <label class="rgpd"><input type="checkbox" name="rgpd" required /><span>J'accepte d'être recontacté(e) au sujet de ma demande.</span></label>
+          <button type="submit" class="btn btn-gold btn-block" data-magnetic>Envoyer sur WhatsApp</button>
+          <p class="form-note">Votre message ouvrira WhatsApp avec un texte pré-rempli vers notre équipe.</p>
+          <div class="form-success" id="formSuccess" hidden><strong>Merci.</strong> Nous ouvrons WhatsApp pour finaliser votre message.</div>
         </form>
       </div>
     </section>
