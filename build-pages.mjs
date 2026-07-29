@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "20";
-const JS_V = "20";
+const CSS_V = "21";
+const JS_V = "21";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -585,6 +585,38 @@ ${sectorsHtml}
           <li><span class="ci-k">WhatsApp</span><a href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>+33 7 68 40 85 25</a></li>
           <li><span class="ci-k">Email</span><a href="mailto:contact@didolcedesserts.com" data-magnetic>contact@didolcedesserts.com</a></li>
         </ul>
+      </div>
+    </section>
+    <section class="section cat-hero">
+      <div class="wrap contact-cta">
+        <p class="sec-index reveal-fade">Catalogue</p>
+        <h2 class="display reveal-lines">Recevez notre catalogue complet.</h2>
+        <p class="lead reveal-fade">Renseignez vos coordonnées ci-dessous : un email pré-rempli s'ouvrira vers notre équipe, qui vous enverra le catalogue par retour avec nos tarifs professionnels.</p>
+      </div>
+    </section>
+    <section class="section cat-form-section">
+      <div class="wrap cat-wrap">
+        <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
+          <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
+          <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
+          <div class="field-row">
+            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
+            <div class="field"><label for="c-phone">Téléphone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" /></div>
+          </div>
+          <div class="field"><label for="c-msg">Votre besoin (optionnel)</label><textarea id="c-msg" name="message" rows="3" placeholder="Volumes, marque privée, secteur d'activité…"></textarea></div>
+          <label class="rgpd"><input type="checkbox" name="rgpd" required /><span>J'accepte d'être recontacté(e) au sujet de ma demande de catalogue.</span></label>
+          <button type="submit" class="btn btn-gold btn-block" data-magnetic>Recevoir le catalogue par email</button>
+          <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
+          <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
+        </form>
+      </div>
+    </section>
+    <section class="section contact-map">
+      <div class="wrap">
+        <p class="sec-index reveal-fade">Nous trouver</p>
+        <div class="map-frame reveal-fade">
+          <iframe src="https://www.google.com/maps?q=22+route+Saint+Pierre,+27430+Porte+de+Seine,+France&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation Di Dolce Desserts — 22 route Saint Pierre, 27430 Porte de Seine"></iframe>
+        </div>
       </div>
     </section>`;
   page("contact.html", "Contact — Di Dolce Desserts", "Contactez Di Dolce Desserts : téléphone, WhatsApp, email et adresse de notre bureau et usine en France.", body);

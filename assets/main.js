@@ -150,18 +150,28 @@
   (function () {
     const row = $("#flRow"); if (!row) return;
     const dotsWrap = $("#flDots");
+    const prevBtn = $("#flPrev"), nextBtn = $("#flNext");
     const cards = $$(".fl-card", row);
+
+    const scrollToIndex = (i) => {
+      i = Math.max(0, Math.min(cards.length - 1, i));
+      row.scrollTo({ left: cards[i].offsetLeft - row.offsetLeft, behavior: "smooth" });
+    };
 
     cards.forEach((_, i) => {
       const b = document.createElement("button");
       b.setAttribute("aria-label", "Parfum " + (i + 1));
       if (i === 0) b.classList.add("on");
-      b.addEventListener("click", () => {
-        row.scrollTo({ left: cards[i].offsetLeft - row.offsetLeft, behavior: "smooth" });
-      });
+      b.addEventListener("click", () => scrollToIndex(i));
       dotsWrap.appendChild(b);
     });
     const dots = $$("button", dotsWrap);
+    let currentIndex = 0;
+    const updateNav = () => {
+      const max = row.scrollWidth - row.clientWidth;
+      if (prevBtn) prevBtn.disabled = row.scrollLeft <= 2;
+      if (nextBtn) nextBtn.disabled = row.scrollLeft >= max - 2;
+    };
     let tick;
     row.addEventListener("scroll", () => {
       clearTimeout(tick);
@@ -171,9 +181,14 @@
           const d = Math.abs(c.offsetLeft - row.offsetLeft - row.scrollLeft);
           if (d < min) { min = d; closest = i; }
         });
+        currentIndex = closest;
         dots.forEach((d, i) => d.classList.toggle("on", i === closest));
+        updateNav();
       }, 80);
     }, { passive: true });
+    if (prevBtn) prevBtn.addEventListener("click", () => scrollToIndex(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener("click", () => scrollToIndex(currentIndex + 1));
+    updateNav();
 
     let isDown = false, startX = 0, startScroll = 0, moved = false;
     row.addEventListener("mousedown", (e) => {

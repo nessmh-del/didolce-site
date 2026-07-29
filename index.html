@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=20" />
+  <link rel="stylesheet" href="assets/style.css?v=21" />
 </head>
 <body>
   <script>
@@ -215,7 +215,15 @@
           <a class="fl-card" href="produit-panna-cotta-caramel.html"><div class="fl-box fl-c13 fl-cover" style=""><img src="assets/img/products/pannacotta.png" alt="Panna Cotta Caramel" /></div><p class="fl-name">Panna Cotta Caramel</p></a>
           <a class="fl-card" href="produit-riz-au-lait.html"><div class="fl-box fl-c14 fl-cover" style=""><img src="assets/img/products/rizaulait.png" alt="Riz au Lait" /></div><p class="fl-name">Riz au Lait</p></a>
         </div>
-        <div class="fl-dots" id="flDots"></div>
+        <div class="fl-controls">
+          <button class="fl-arrow fl-prev" id="flPrev" type="button" data-cursor="hide" aria-label="Parfum précédent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="fl-dots" id="flDots"></div>
+          <button class="fl-arrow fl-next" id="flNext" type="button" data-cursor="hide" aria-label="Parfum suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -302,6 +310,30 @@
       </div>
     </section>
 
+    <!-- CATALOGUE (format paysage) -->
+    <section class="section cat-inline" id="catalogue">
+      <div class="wrap cat-inline-grid">
+        <div class="cat-inline-text">
+          <p class="sec-index reveal-fade">Catalogue</p>
+          <h2 class="display reveal-lines">Recevez notre catalogue complet.</h2>
+          <p class="lead reveal-fade">Renseignez vos coordonnées ci-dessous : un email pré-rempli s'ouvrira vers notre équipe, qui vous enverra le catalogue par retour avec nos tarifs professionnels.</p>
+        </div>
+        <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
+          <div class="field"><label for="ci-name">Nom &amp; prénom</label><input id="ci-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
+          <div class="field"><label for="ci-company">Société</label><input id="ci-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
+          <div class="field-row">
+            <div class="field"><label for="ci-email">Email</label><input id="ci-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
+            <div class="field"><label for="ci-phone">Téléphone</label><input id="ci-phone" name="phone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" /></div>
+          </div>
+          <div class="field"><label for="ci-msg">Votre besoin (optionnel)</label><textarea id="ci-msg" name="message" rows="3" placeholder="Volumes, marque privée, secteur d'activité…"></textarea></div>
+          <label class="rgpd"><input type="checkbox" name="rgpd" required /><span>J'accepte d'être recontacté(e) au sujet de ma demande de catalogue.</span></label>
+          <button type="submit" class="btn btn-gold btn-block" data-magnetic>Recevoir le catalogue par email</button>
+          <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
+          <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
+        </form>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="wrap contact-cta">
@@ -370,6 +402,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="assets/main.js?v=20"></script>
+  <script src="assets/main.js?v=21"></script>
 </body>
 </html>
