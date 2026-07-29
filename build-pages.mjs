@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "22";
-const JS_V = "22";
+const CSS_V = "23";
+const JS_V = "23";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
