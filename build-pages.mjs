@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "17";
-const JS_V = "17";
+const CSS_V = "19";
+const JS_V = "19";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -69,7 +69,7 @@ function head(title, desc, ogImage = "assets/img/hero.jpg") {
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-inner">
       <svg class="intro-logo"><use href="#didolce-logo"></use></svg>
-      <span class="intro-tag">Fatto in Italia · 100% Halal</span>
+      <span class="intro-tag">L'excellence du dessert</span>
     </div>
   </div>
 `;
