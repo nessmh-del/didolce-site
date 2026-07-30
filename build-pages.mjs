@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "23";
-const JS_V = "23";
+const CSS_V = "24";
+const JS_V = "24";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -107,11 +107,9 @@ function header(activeFile) {
 ${items}
       </ul>
       <div class="nav-feature">
-        <div class="nav-feature-img" style="background-image:url('assets/img/plated.jpg')"></div>
+        <div class="nav-feature-img" style="background-image:url('assets/img/nav-feature.jpg')"></div>
         <div class="nav-feature-txt">
           <p>« Créer la meilleure expérience de fin de repas possible. »</p>
-          <a href="https://wa.me/33768408525" target="_blank" rel="noopener">+33 7 68 40 85 25</a>
-          <a href="mailto:contact@didolcedesserts.com">contact@didolcedesserts.com</a>
         </div>
       </div>
     </div>
@@ -574,8 +572,9 @@ ${sectorsHtml}
       <div class="wrap contact-grid">
         <div class="contact-info">
           <p class="sec-index reveal-fade">Contact</p>
-          <h1 class="display reveal-lines">Parlons de vos desserts.</h1>
-          <p class="lead reveal-fade">Une question, un projet en marque privée, une demande de tarifs professionnels ? Un appel ou un message WhatsApp suffit — nous vous répondons rapidement.</p>
+          <h1 class="display reveal-lines">Parlons de votre offre dessert</h1>
+          <p class="lead reveal-fade">Professionnel de l'alimentaire ou de la restauration ? Di Dolce Desserts vous accompagne avec des solutions adaptées à votre activité.</p>
+          <p class="lead reveal-fade">Tarifs professionnels, marque privée ou renseignements : contactez notre équipe par téléphone ou par e-mail. Nous vous répondrons rapidement.</p>
           <div class="contact-actions reveal-fade">
             <a class="btn btn-gold" href="tel:+33956597257" data-magnetic>Appeler le +33 9 56 59 72 57</a>
             <a class="btn btn-line" href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>Écrire sur WhatsApp</a>
