@@ -272,10 +272,10 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
    ========================================================================= */
 .tiramisu-intro{background:var(--white,#fff);padding-block:clamp(3.5rem,8vw,7rem)}
 .tiramisu-intro .wrap{max-width:1180px}
-.ti-imgwrap{position:relative;margin-bottom:clamp(2.5rem,6vw,4rem);border-radius:20px;overflow:hidden;aspect-ratio:16/9}
+.ti-imgwrap{position:relative;margin-bottom:clamp(2.5rem,6vw,4rem);border-radius:20px;overflow:hidden;aspect-ratio:1412/960}
 .ti-media-glow{position:absolute;top:50%;left:50%;width:60%;height:82%;transform:translate(-50%,-50%);
   background:radial-gradient(ellipse at center,rgba(192,151,90,.28),rgba(192,151,90,0) 70%);filter:blur(28px);z-index:0}
-.ti-imgwrap img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.ti-imgwrap img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
 @media (max-width:640px){.ti-imgwrap{aspect-ratio:4/5}}
 .ti-textgrid{display:grid;grid-template-columns:1fr;gap:2.2rem}
 .ti-textgrid h2{margin-bottom:1.4rem}
