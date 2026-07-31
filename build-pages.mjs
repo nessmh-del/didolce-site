@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "30";
-const JS_V = "30";
+const CSS_V = "31";
+const JS_V = "31";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -331,7 +331,7 @@ function productBody(p) {
       <div class="wrap">
         <div class="ap-pillars ap-pillars--icons">
           <div class="ap-pillar reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l8-6 8 6v9"/><path d="M4 20h16M9 20v-6a3 3 0 0 1 6 0v6"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 3.5 20h17L12 4Z"/><path d="M7.4 14h9.2M5.5 17.5h13"/><circle cx="12" cy="7.2" r="1.1"/></svg></span>
             <h3>Texture généreuse</h3>
             <p>Une texture soignée et généreuse, pensée pour restituer toute la richesse de la recette à chaque cuillère.</p>
           </div>
@@ -341,7 +341,7 @@ function productBody(p) {
             <p>Décongélation rapide, dressage facile et service fluide.</p>
           </div>
           <div class="ap-pillar reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M9 21v-4h6v4M7.5 9.5A3.5 3.5 0 0 1 9 3a3 3 0 0 1 3 1.7A3 3 0 0 1 15 3a3.5 3.5 0 0 1 1.5 6.6c.6.7 1 1.6 1 2.6 0 2.2-1.8 3.8-4.5 3.8h-2c-2.7 0-4.5-1.6-4.5-3.8 0-1 .4-1.9 1-2.6Z"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><path d="M6 17h12"/></svg></span>
             <h3>Pensé pour les pros</h3>
             <p>Une solution adaptée aux restaurants, hôtels, cafés et distributeurs.</p>
           </div>
@@ -554,12 +554,12 @@ ${sectorsHtml}
         <h2 class="display reveal-lines mp-band-title">Notre offre de marque de distributeur.</h2>
         <div class="mp-feature-grid cols-5">
           <div class="mp-feature reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M9 21v-4h6v4M7.5 9.5A3.5 3.5 0 0 1 9 3a3 3 0 0 1 3 1.7A3 3 0 0 1 15 3a3.5 3.5 0 0 1 1.5 6.6c.6.7 1 1.6 1 2.6 0 2.2-1.8 3.8-4.5 3.8h-2c-2.7 0-4.5-1.6-4.5-3.8 0-1 .4-1.9 1-2.6Z"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><path d="M6 17h12"/></svg></span>
             <h3>Recette sur mesure</h3>
             <p>Élaboration de recettes sur mesure, adaptées à vos besoins et à votre positionnement.</p>
           </div>
           <div class="mp-feature reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h12l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2l-1-9Z"/><path d="M5 7h14M9 7V5a3 3 0 0 1 6 0v2"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="7.5" y="2.5" width="9" height="3.4" rx="1.1"/><path d="M7 6h10v13a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6Z"/><path d="M7 12.5h10"/></svg></span>
             <h3>Personnalisation complète</h3>
             <p>Personnalisation complète des emballages et des étiquettes avec votre logo et votre design.</p>
           </div>
@@ -569,12 +569,12 @@ ${sectorsHtml}
             <p>Production française, réalisée à l'aide d'équipements modernes et selon des normes de qualité élevées.</p>
           </div>
           <div class="mp-feature reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="9" width="5.5" height="11" rx="1.2"/><rect x="9.5" y="5" width="5" height="15" rx="1.2"/><rect x="16" y="11" width="5.5" height="9" rx="1.2"/></svg></span>
             <h3>Adapté à votre format</h3>
             <p>Large gamme de formats et de conditionnements pour le commerce de détail, l'hôtellerie et la restauration.</p>
           </div>
           <div class="mp-feature reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 8l8 8"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 16.5 13 18a1.4 1.4 0 0 0 2-2"/><path d="m13.6 13.4 2.9 2.9a1.4 1.4 0 0 0 2-2l-4-4a2.6 2.6 0 0 0-3.6 0l-.6.6a1.4 1.4 0 0 1-2-2l2.4-2.4a4.6 4.6 0 0 1 5.7-.6l.6.35 1.6-.35"/><path d="m3 6.5 1.6.35.6-.35a4.6 4.6 0 0 1 3-.5"/><path d="M2.5 6 3.4 13l4.6 4.6a1.4 1.4 0 0 0 2-2"/></svg></span>
             <h3>Accompagnement</h3>
             <p>Un accompagnement complet à chaque étape : de l'idée au produit final.</p>
           </div>
@@ -585,7 +585,7 @@ ${sectorsHtml}
       <div class="wrap">
         <div class="mp-feature-grid cols-6">
           <div class="mp-feature reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6 20 7v10l-8 4.4L4 17V7l8-4.4Z"/></svg></span>
             <h3>Fabriqué en France</h3>
             <p>Savoir-faire artisanal et ingrédients soigneusement sélectionnés.</p>
           </div>
@@ -600,7 +600,7 @@ ${sectorsHtml}
             <p>Des volumes évolutifs adaptés à vos besoins, du lancement à la distribution à grande échelle.</p>
           </div>
           <div class="mp-feature reveal-fade">
-            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.6 2.2"/><path d="M9.5 2h5M12 2v3"/><path d="m19.4 6.9 1.3-1.3"/></svg></span>
             <h3>Développement rapide</h3>
             <p>De nouveaux produits développés en un temps record grâce à notre expertise en R&amp;D.</p>
           </div>
@@ -643,7 +643,7 @@ ${sectorsHtml}
       </div>
     </section>
     <section class="section cat-form-section">
-      <div class="wrap cat-page-grid">
+      <div class="wrap cat-wrap">
         <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
           <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
           <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
@@ -657,14 +657,6 @@ ${sectorsHtml}
           <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
           <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
         </form>
-        <div class="cat-cover-wrap reveal-fade">
-          <div class="cat-cover">
-            <svg class="cat-cover-logo"><use href="#didolce-logo"></use></svg>
-            <p class="cat-cover-tag">Desserts italiens premium · 100% Halal</p>
-            <h3 class="cat-cover-title">Catalogue<br>Produits</h3>
-            <p class="cat-cover-sub">Fatto in Italia</p>
-          </div>
-        </div>
       </div>
     </section>`;
   page("catalogue.html", "Catalogue — Di Dolce Desserts", "Recevez le catalogue complet Di Dolce Desserts : tiramisù, cheesecake, mousse et plus, tarifs professionnels et informations produits.", body);
@@ -706,6 +698,29 @@ ${sectorsHtml}
           <p class="form-note">Votre message ouvrira WhatsApp avec un texte pré-rempli vers notre équipe.</p>
           <div class="form-success" id="formSuccess" hidden><strong>Merci.</strong> Nous ouvrons WhatsApp pour finaliser votre message.</div>
         </form>
+      </div>
+    </section>
+    <section class="section cat-form-section">
+      <div class="wrap cat-page-grid">
+        <div class="cat-form-col">
+          <p class="sec-index reveal-fade">Catalogue</p>
+          <h2 class="display reveal-lines">Recevez notre catalogue complet.</h2>
+          <p class="lead reveal-fade">Renseignez vos coordonnées : un email pré-rempli s'ouvrira vers notre équipe, qui vous enverra le catalogue par retour avec nos tarifs professionnels.</p>
+          <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
+            <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
+            <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
+            <div class="field-row">
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
+              <div class="field"><label for="c-phone">Téléphone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" /></div>
+            </div>
+            <label class="rgpd"><input type="checkbox" name="rgpd" required /><span>J'accepte d'être recontacté(e) au sujet de ma demande de catalogue.</span></label>
+            <button type="submit" class="btn btn-gold btn-block" data-magnetic>Recevoir le catalogue par email</button>
+            <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
+          </form>
+        </div>
+        <div class="cat-cover-wrap reveal-fade">
+          <img class="cat-cover-img" src="assets/img/catalogue-cover.jpg" alt="Première page du catalogue Di Dolce Desserts" />
+        </div>
       </div>
     </section>
     <section class="section contact-map">
