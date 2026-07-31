@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "35";
-const JS_V = "35";
+const CSS_V = "36";
+const JS_V = "36";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -225,6 +225,13 @@ export const PRODUCTS = [
     detail: "Inspiré de la tendance du chocolat Dubaï, ce tiramisù marie la pistache, le croustillant du kadaïf et un nappage chocolat-noisette gourmand. Une signature originale sur nos cartes.",
   },
   {
+    slug: "tiramisu-classico", name: "Tiramisù Classico", category: "Tiramisù",
+    img: "tiramisu-classico.jpg", color: "#f4ede2", cover: true,
+    tagline: "La douceur italienne, l'exigence française.",
+    desc: "Notre recette traditionnelle au mascarpone et au café, conditionnée en barquette prête à découper, disponible en formats individuels ou à partager.",
+    detail: "Un tiramisù authentique, produit en France, décliné en plusieurs formats (100 g, 2 x 100 g, 120 g, 500 g) pour répondre aussi bien à la vente au détail qu'aux moments de partage en famille ou en restauration.",
+  },
+  {
     slug: "cheesecake-mangue-coco", name: "Cheesecake Mangue-Coco", category: "Cheesecake",
     img: "cheesecake-mangue.png", color: "#E0954A",
     tagline: "Délicieux mélange.",
@@ -377,6 +384,12 @@ for (const p of PRODUCTS) {
    FORMATS D'EMBALLAGE B2C — bloc partagé (desserts.html + index.html)
    ======================================================================== */
 function b2cSection() {
+  const personIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>`;
+  const card = (img, weight, pers) => `              <div class="b2c-card reveal-fade">
+                <div class="b2c-card-media"><img src="assets/img/${img}" alt="Tiramisù Classico ${weight}" loading="lazy" /></div>
+                <span class="b2c-weight">${weight}</span>
+                <span class="b2c-pers">${personIcon} ${pers}</span>
+              </div>`;
   return `    <section class="section b2c-section">
       <div class="wrap">
         <div class="b2c-head">
@@ -394,37 +407,21 @@ function b2cSection() {
               </div>
             </div>
             <div class="b2c-cards">
-              <div class="b2c-card reveal-fade">
-                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2 12 4l9 4.2-9 4-9-4Z"/><path d="M3 8.2v8.6l9 4 9-4V8.2"/><path d="M12 12.2v8.6"/></svg></span>
-                <span class="b2c-weight">250 g</span>
-                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 1-2 pers.</span>
-              </div>
-              <div class="b2c-card reveal-fade">
-                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2 12 4l9 4.2-9 4-9-4Z"/><path d="M3 8.2v8.6l9 4 9-4V8.2"/><path d="M12 12.2v8.6"/></svg></span>
-                <span class="b2c-weight">500 g</span>
-                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 4-6 pers.</span>
-              </div>
+${card("b2c-120g.jpg", "120 g", "1-2 pers.")}
+${card("b2c-500g.jpg", "500 g", "4-6 pers.")}
             </div>
           </div>
           <div class="b2c-group reveal-fade">
             <div class="b2c-group-head">
-              <span class="b2c-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></span>
+              <span class="b2c-group-icon" aria-hidden="true">${personIcon}</span>
               <div>
                 <h3>Formats individuels</h3>
                 <p>Parfaits, nomades, pensés pour la vente au détail.</p>
               </div>
             </div>
             <div class="b2c-cards">
-              <div class="b2c-card reveal-fade">
-                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h12l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2l-1-9Z"/><path d="M5 7h14M9 7V5a3 3 0 0 1 6 0v2"/></svg></span>
-                <span class="b2c-weight">100 g</span>
-                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 1 pers.</span>
-              </div>
-              <div class="b2c-card reveal-fade">
-                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2 12 4l9 4.2-9 4-9-4Z"/><path d="M3 8.2v8.6l9 4 9-4V8.2"/><path d="M12 12.2v8.6"/></svg></span>
-                <span class="b2c-weight">2 &times; 100 g</span>
-                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 2 pers.</span>
-              </div>
+${card("b2c-100g.jpg", "100 g", "1 pers.")}
+${card("b2c-200g.jpg", "2 &times; 100 g", "2 pers.")}
             </div>
           </div>
         </div>
