@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "26";
-const JS_V = "26";
+const CSS_V = "30";
+const JS_V = "30";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -308,20 +308,42 @@ function productBody(p) {
             </div>
           </div>
           <div class="pd-info">
-            <p class="sec-index reveal-fade">${p.category}</p>
+            <p class="sec-index reveal-fade">Collection ${p.category}</p>
             <h1 class="display reveal-lines">${p.name}</h1>
             <p class="pd-tagline reveal-fade">${p.tagline}</p>
             <p class="lead reveal-fade">${p.desc}</p>
-            <p class="pd-detail reveal-fade">${p.detail}</p>
-            <div class="pd-specs reveal-fade">
-              <div><span>Format</span>100 g · portion individuelle</div>
-              <div><span>100% Halal</span>Sans alcool, sans gélatine porcine</div>
-              <div><span>Conservation</span>-18°C jusqu'à 12 mois</div>
-            </div>
+            <p class="pd-badges reveal-fade">Surgelé <i>&bull;</i> Format individuel <i>&bull;</i> Prêt à servir</p>
             <div class="pd-actions reveal-fade">
-              <a class="btn btn-gold" href="catalogue.html" data-magnetic>Recevoir le catalogue</a>
-              <a class="btn btn-line" href="contact.html" data-magnetic>Nous contacter</a>
+              <a class="btn btn-dark" href="contact.html" data-magnetic>Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-line" href="catalogue.html" data-magnetic>Télécharger la fiche technique <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg></a>
             </div>
+            <div class="pd-spec-grid reveal-fade">
+              <div><span class="pd-spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 7h10M4 7l-2 5a3 3 0 0 0 6 0L6 7Zm14 0l-2 5a3 3 0 0 0 6 0l-2-5Z"/></svg></span><strong>Poids net</strong><b>100 g</b></div>
+              <div><span class="pd-spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M12 6l-2-2M12 6l2-2M12 18l-2 2M12 18l2 2M7 9l-2.7-.7M7 9l.7-2.7M17 9l2.7-.7M17 9l-.7-2.7M7 15l-2.7.7M7 15l.7 2.7M17 15l2.7.7M17 15l-.7 2.7"/></svg></span><strong>Décongélation</strong><b>4 h</b></div>
+              <div><span class="pd-spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14.5V5a2 2 0 1 0-4 0v9.5a4 4 0 1 0 4 0Z"/></svg></span><strong>Conservation</strong><b>+4&deg;C</b></div>
+              <div><span class="pd-spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h12l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2l-1-9Z"/><path d="M5 7h14M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><strong>Conditionnement</strong><b>1 portion</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section pd-features">
+      <div class="wrap">
+        <div class="ap-pillars ap-pillars--icons">
+          <div class="ap-pillar reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l8-6 8 6v9"/><path d="M4 20h16M9 20v-6a3 3 0 0 1 6 0v6"/></svg></span>
+            <h3>Texture généreuse</h3>
+            <p>Une texture soignée et généreuse, pensée pour restituer toute la richesse de la recette à chaque cuillère.</p>
+          </div>
+          <div class="ap-pillar reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <h3>Simple à préparer</h3>
+            <p>Décongélation rapide, dressage facile et service fluide.</p>
+          </div>
+          <div class="ap-pillar reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M9 21v-4h6v4M7.5 9.5A3.5 3.5 0 0 1 9 3a3 3 0 0 1 3 1.7A3 3 0 0 1 15 3a3.5 3.5 0 0 1 1.5 6.6c.6.7 1 1.6 1 2.6 0 2.2-1.8 3.8-4.5 3.8h-2c-2.7 0-4.5-1.6-4.5-3.8 0-1 .4-1.9 1-2.6Z"/></svg></span>
+            <h3>Pensé pour les pros</h3>
+            <p>Une solution adaptée aux restaurants, hôtels, cafés et distributeurs.</p>
           </div>
         </div>
       </div>
@@ -488,33 +510,110 @@ ${sectorsHtml}
    ======================================================================== */
 {
   const body = `
-    <section class="section ti-intro">
-      <div class="wrap ap-wrap">
-        <div class="ap-media reveal-fade">
-          <div class="ti-media-glow" aria-hidden="true"></div>
-          <img src="assets/img/private.jpg" alt="Marque privée Di Dolce" />
-        </div>
-        <div class="ap-text">
-          <p class="sec-index reveal-fade">Marque privée</p>
-          <h1 class="display reveal-lines">Votre marque, notre expertise.</h1>
-          <p class="lead reveal-fade">Nous accompagnons les marques, distributeurs et professionnels de la restauration dans la création de desserts d'exception en marque de distributeur. De la recette au produit fini, nous mettons notre savoir-faire au service de votre projet.</p>
-          <p class="ti-lead reveal-fade">Nous proposons nos desserts en marque blanche, dans différents formats de pots et de couvercles. La recette reste inchangée ; l'étiquette est personnalisée avec votre logo, votre identité visuelle et les informations réglementaires. Quantité minimale sur demande.</p>
+    <section class="section ti-intro mp-hero">
+      <div class="wrap mp-hero-text">
+        <p class="sec-index reveal-fade">Marque de distributeur</p>
+        <h1 class="display reveal-lines">Votre marque, notre expertise.</h1>
+        <p class="lead reveal-fade">Votre partenaire pour des desserts premium sous votre propre marque. Nous accompagnons les marques, les distributeurs et les professionnels de la restauration dans la création de desserts d'exception en marque de distributeur. De la recette au produit fini, nous mettons notre savoir-faire au service de votre projet.</p>
+      </div>
+      <div class="wrap">
+        <div class="mp-photo reveal-fade">
+          <img src="assets/img/private-label.jpg" alt="Pots Di Dolce en marque privée, étiquette personnalisable" />
         </div>
       </div>
     </section>
     <section class="section engagement">
       <div class="wrap">
-        <div class="engage-top">
-          <p class="sec-index reveal-fade">Notre offre</p>
-          <h2 class="display reveal-lines">Un accompagnement complet, de l'idée au produit final.</h2>
+        <div class="engage-top center">
+          <p class="sec-index reveal-fade">Marque privée</p>
+          <h2 class="display reveal-lines">Une étiquette à votre image, une recette inchangée.</h2>
+          <p class="lead reveal-fade">Nous proposons nos desserts en marque blanche, dans différents formats de pots et de couvercles. La recette reste inchangée ; l'étiquette est personnalisée avec votre logo, votre identité visuelle et les informations réglementaires. Nous accompagnons le client depuis la définition du produit jusqu'à son emballage, en passant par la gestion des éventuelles évolutions du projet.</p>
+          <p class="mp-note reveal-fade">Quantité minimale sur demande.</p>
         </div>
-        <div class="ap-pillars">
-          <div class="ap-pillar reveal-fade"><h3>Recette sur mesure</h3><p>Élaboration de recettes personnalisées, adaptées à vos besoins et à votre positionnement.</p></div>
-          <div class="ap-pillar reveal-fade"><h3>Personnalisation complète</h3><p>Réalisée à l'aide des emballages et des étiquettes avec votre logo et votre design.</p></div>
-          <div class="ap-pillar reveal-fade"><h3>Production française</h3><p>Réalisée à l'aide d'équipements modernes et selon des normes de qualité élevées.</p></div>
-          <div class="ap-pillar reveal-fade"><h3>Adapté à votre format</h3><p>Large gamme de formats et de conditionnements pour le commerce de détail, l'hôtellerie et la restauration.</p></div>
-          <div class="ap-pillar reveal-fade"><h3>Flexibilité de production</h3><p>Des volumes évolutifs adaptés à vos besoins, du lancement à la distribution à grande échelle.</p></div>
-          <div class="ap-pillar reveal-fade"><h3>Qualité et traçabilité</h3><p>Des contrôles rigoureux à chaque étape pour garantir une qualité constante et une traçabilité totale.</p></div>
+        <div class="ap-pillars ap-pillars--icons">
+          <div class="ap-pillar reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h8l10 10-8 8L3 11V3Z"/><circle cx="7.5" cy="7.5" r="1"/></svg></span>
+            <h3>Étiquette personnalisée</h3>
+            <p>Votre logo, le nom du produit et les informations essentielles sur l'étiquette.</p>
+          </div>
+          <div class="ap-pillar reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 5.5V11c0 4.5 3 7.7 7 9 4-1.3 7-4.5 7-9V5.5L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3>Identité de votre marque</h3>
+            <p>Votre logo est mis en avant, avec les mentions réglementaires nécessaires.</p>
+          </div>
+          <div class="ap-pillar reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></span>
+            <h3>Solution sans étiquette</h3>
+            <p>Un emballage neutre, prêt à intégrer votre propre système d'étiquetage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section mp-band">
+      <div class="wrap">
+        <h2 class="display reveal-lines mp-band-title">Notre offre de marque de distributeur.</h2>
+        <div class="mp-feature-grid cols-5">
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M9 21v-4h6v4M7.5 9.5A3.5 3.5 0 0 1 9 3a3 3 0 0 1 3 1.7A3 3 0 0 1 15 3a3.5 3.5 0 0 1 1.5 6.6c.6.7 1 1.6 1 2.6 0 2.2-1.8 3.8-4.5 3.8h-2c-2.7 0-4.5-1.6-4.5-3.8 0-1 .4-1.9 1-2.6Z"/></svg></span>
+            <h3>Recette sur mesure</h3>
+            <p>Élaboration de recettes sur mesure, adaptées à vos besoins et à votre positionnement.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h12l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2l-1-9Z"/><path d="M5 7h14M9 7V5a3 3 0 0 1 6 0v2"/></svg></span>
+            <h3>Personnalisation complète</h3>
+            <p>Personnalisation complète des emballages et des étiquettes avec votre logo et votre design.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l5 3v-3l5 3V8l5 4v9H3Z"/><path d="M3 21h18"/></svg></span>
+            <h3>Production industrielle</h3>
+            <p>Production française, réalisée à l'aide d'équipements modernes et selon des normes de qualité élevées.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></span>
+            <h3>Adapté à votre format</h3>
+            <p>Large gamme de formats et de conditionnements pour le commerce de détail, l'hôtellerie et la restauration.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 8l8 8"/></svg></span>
+            <h3>Accompagnement</h3>
+            <p>Un accompagnement complet à chaque étape : de l'idée au produit final.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section mp-band alt">
+      <div class="wrap">
+        <div class="mp-feature-grid cols-6">
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg></span>
+            <h3>Fabriqué en France</h3>
+            <p>Savoir-faire artisanal et ingrédients soigneusement sélectionnés.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L12 16.9 6.4 20l1.4-6.3-4.8-4.3 6.4-.6L12 3Z"/></svg></span>
+            <h3>Recettes premium</h3>
+            <p>Des recettes délicieuses et authentiques pour des desserts exceptionnels.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+            <h3>Flexibilité de la production</h3>
+            <p>Des volumes évolutifs adaptés à vos besoins, du lancement à la distribution à grande échelle.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+            <h3>Développement rapide</h3>
+            <p>De nouveaux produits développés en un temps record grâce à notre expertise en R&amp;D.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg></span>
+            <h3>Qualité et traçabilité</h3>
+            <p>Des contrôles rigoureux à chaque étape pour garantir une qualité constante et une traçabilité totale.</p>
+          </div>
+          <div class="mp-feature reveal-fade">
+            <span class="ap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M20 19v1a3 3 0 0 1-3 3h-3"/></svg></span>
+            <h3>Service spécial pour les professionnels</h3>
+            <p>Une équipe dédiée pour un suivi personnalisé et proactif.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -528,7 +627,7 @@ ${sectorsHtml}
         </div>
       </div>
     </section>`;
-  page("marque-privee.html", "Marque privée — Di Dolce Desserts", "Di Dolce accompagne marques, distributeurs et professionnels de la restauration dans la création de desserts premium en marque de distributeur (private label).", body, "assets/img/private.jpg");
+  page("marque-privee.html", "Marque privée — Di Dolce Desserts", "Di Dolce accompagne marques, distributeurs et professionnels de la restauration dans la création de desserts premium en marque de distributeur (private label).", body, "assets/img/private-label.jpg");
 }
 
 /* ========================================================================
@@ -544,7 +643,7 @@ ${sectorsHtml}
       </div>
     </section>
     <section class="section cat-form-section">
-      <div class="wrap cat-wrap">
+      <div class="wrap cat-page-grid">
         <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
           <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
           <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
@@ -558,6 +657,14 @@ ${sectorsHtml}
           <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
           <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
         </form>
+        <div class="cat-cover-wrap reveal-fade">
+          <div class="cat-cover">
+            <svg class="cat-cover-logo"><use href="#didolce-logo"></use></svg>
+            <p class="cat-cover-tag">Desserts italiens premium · 100% Halal</p>
+            <h3 class="cat-cover-title">Catalogue<br>Produits</h3>
+            <p class="cat-cover-sub">Fatto in Italia</p>
+          </div>
+        </div>
       </div>
     </section>`;
   page("catalogue.html", "Catalogue — Di Dolce Desserts", "Recevez le catalogue complet Di Dolce Desserts : tiramisù, cheesecake, mousse et plus, tarifs professionnels et informations produits.", body);
