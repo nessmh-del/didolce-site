@@ -539,6 +539,27 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 @media (min-width:640px){.ds-grid{grid-template-columns:repeat(3,1fr)}}
 @media (min-width:960px){.ds-grid{grid-template-columns:repeat(4,1fr)}}
 
+/* --- FORMATS D'EMBALLAGE B2C --- */
+.b2c-section{background:var(--paper)}
+.b2c-head{max-width:660px}
+.b2c-head .lead{margin-top:.6rem}
+.b2c-groups{display:grid;grid-template-columns:1fr;gap:2.8rem;margin-top:clamp(2.4rem,5vw,3.4rem)}
+.b2c-group-head{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.6rem}
+.b2c-group-icon{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;
+  border:1.5px solid var(--ink);color:var(--ink);flex:none}
+.b2c-group-icon svg{width:20px;height:20px}
+.b2c-group-head h3{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.3rem}
+.b2c-group-head p{font-size:.92rem;color:var(--muted-l);line-height:1.5}
+.b2c-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.b2c-card{background:#fff;border:1px solid var(--line-l);border-radius:14px;padding:1.8rem 1rem;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.8rem}
+.b2c-card-icon{color:var(--gold-d)}
+.b2c-card-icon svg{width:32px;height:32px}
+.b2c-weight{font-family:var(--serif);font-size:1.25rem;color:var(--ink);padding:.3rem 1.1rem;border:1px solid var(--gold);border-radius:100px;white-space:nowrap}
+.b2c-pers{display:flex;align-items:center;gap:.4rem;font-family:var(--sans);font-size:.84rem;color:var(--muted-l)}
+.b2c-pers svg{width:15px;height:15px;flex:none}
+@media (min-width:760px){.b2c-groups{grid-template-columns:repeat(2,1fr);gap:3rem}}
+
 /* --- SOLUTIONS PROFESSIONNELLES --- */
 .sol-hero{background:var(--cream);text-align:center;padding-bottom:1rem}
 .sol-hero .wrap{max-width:820px}

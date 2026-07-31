@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "34";
-const JS_V = "34";
+const CSS_V = "35";
+const JS_V = "35";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -374,6 +374,65 @@ for (const p of PRODUCTS) {
 }
 
 /* ========================================================================
+   FORMATS D'EMBALLAGE B2C — bloc partagé (desserts.html + index.html)
+   ======================================================================== */
+function b2cSection() {
+  return `    <section class="section b2c-section">
+      <div class="wrap">
+        <div class="b2c-head">
+          <p class="sec-index reveal-fade">Format d'emballage pour B2C</p>
+          <h2 class="display reveal-lines">Du format individuel au format à partager.</h2>
+          <p class="lead reveal-fade">Notre gamme complète répond à toutes les occasions et à tous les marchés.</p>
+        </div>
+        <div class="b2c-groups">
+          <div class="b2c-group reveal-fade">
+            <div class="b2c-group-head">
+              <span class="b2c-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><path d="M2.8 19.5a5.9 5.9 0 0 1 11.4 0"/><circle cx="17" cy="9" r="2.3"/><path d="M13.8 19.5a4.5 4.5 0 0 1 8.2-2.6"/></svg></span>
+              <div>
+                <h3>Formats à partager</h3>
+                <p>Parfaits pour le partage, les moments en famille ou en restauration.</p>
+              </div>
+            </div>
+            <div class="b2c-cards">
+              <div class="b2c-card reveal-fade">
+                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2 12 4l9 4.2-9 4-9-4Z"/><path d="M3 8.2v8.6l9 4 9-4V8.2"/><path d="M12 12.2v8.6"/></svg></span>
+                <span class="b2c-weight">250 g</span>
+                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 1-2 pers.</span>
+              </div>
+              <div class="b2c-card reveal-fade">
+                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2 12 4l9 4.2-9 4-9-4Z"/><path d="M3 8.2v8.6l9 4 9-4V8.2"/><path d="M12 12.2v8.6"/></svg></span>
+                <span class="b2c-weight">500 g</span>
+                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 4-6 pers.</span>
+              </div>
+            </div>
+          </div>
+          <div class="b2c-group reveal-fade">
+            <div class="b2c-group-head">
+              <span class="b2c-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></span>
+              <div>
+                <h3>Formats individuels</h3>
+                <p>Parfaits, nomades, pensés pour la vente au détail.</p>
+              </div>
+            </div>
+            <div class="b2c-cards">
+              <div class="b2c-card reveal-fade">
+                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h12l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2l-1-9Z"/><path d="M5 7h14M9 7V5a3 3 0 0 1 6 0v2"/></svg></span>
+                <span class="b2c-weight">100 g</span>
+                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 1 pers.</span>
+              </div>
+              <div class="b2c-card reveal-fade">
+                <span class="b2c-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.2 12 4l9 4.2-9 4-9-4Z"/><path d="M3 8.2v8.6l9 4 9-4V8.2"/><path d="M12 12.2v8.6"/></svg></span>
+                <span class="b2c-weight">2 &times; 100 g</span>
+                <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 2 pers.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
+
+/* ========================================================================
    NOS DESSERTS — listing
    ======================================================================== */
 {
@@ -399,7 +458,8 @@ for (const p of PRODUCTS) {
 ${gridHtml}
         </div>
       </div>
-    </section>`;
+    </section>
+${b2cSection()}`;
   page("desserts.html", "Nos desserts — Di Dolce Desserts", "La gamme complète des desserts italiens Di Dolce : tiramisù, cheesecake, mousse, profiterol, black forest, desserts à la crème. 100% Halal, prêts à servir.", body, "assets/img/products/tiramisu-caramel.png");
 }
 
