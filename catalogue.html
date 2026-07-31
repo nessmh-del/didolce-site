@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/style.css?v=32" />
 </head>
 <body>
   <script>
@@ -100,7 +100,7 @@
       </div>
     </section>
     <section class="section cat-form-section">
-      <div class="wrap cat-wrap">
+      <div class="wrap cat-page-grid">
         <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
           <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
           <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
@@ -114,6 +114,14 @@
           <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
           <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
         </form>
+        <div class="cat-cover-wrap reveal-fade">
+          <div class="cat-cover">
+            <svg class="cat-cover-logo"><use href="#didolce-logo"></use></svg>
+            <p class="cat-cover-tag">Desserts italiens premium · 100% Halal</p>
+            <h3 class="cat-cover-title">Catalogue<br>Produits</h3>
+            <p class="cat-cover-sub">Fatto in Italia</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -166,6 +174,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="assets/main.js?v=31"></script>
+  <script src="assets/main.js?v=32"></script>
 </body>
 </html>

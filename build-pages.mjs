@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "31";
-const JS_V = "31";
+const CSS_V = "32";
+const JS_V = "32";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -643,7 +643,7 @@ ${sectorsHtml}
       </div>
     </section>
     <section class="section cat-form-section">
-      <div class="wrap cat-wrap">
+      <div class="wrap cat-page-grid">
         <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
           <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
           <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
@@ -657,6 +657,14 @@ ${sectorsHtml}
           <p class="form-note">Votre message ouvrira votre messagerie avec un email pré-rempli vers contact@didolcedesserts.com.</p>
           <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
         </form>
+        <div class="cat-cover-wrap reveal-fade">
+          <div class="cat-cover">
+            <svg class="cat-cover-logo"><use href="#didolce-logo"></use></svg>
+            <p class="cat-cover-tag">Desserts italiens premium · 100% Halal</p>
+            <h3 class="cat-cover-title">Catalogue<br>Produits</h3>
+            <p class="cat-cover-sub">Fatto in Italia</p>
+          </div>
+        </div>
       </div>
     </section>`;
   page("catalogue.html", "Catalogue — Di Dolce Desserts", "Recevez le catalogue complet Di Dolce Desserts : tiramisù, cheesecake, mousse et plus, tarifs professionnels et informations produits.", body);
@@ -698,29 +706,6 @@ ${sectorsHtml}
           <p class="form-note">Votre message ouvrira WhatsApp avec un texte pré-rempli vers notre équipe.</p>
           <div class="form-success" id="formSuccess" hidden><strong>Merci.</strong> Nous ouvrons WhatsApp pour finaliser votre message.</div>
         </form>
-      </div>
-    </section>
-    <section class="section cat-form-section">
-      <div class="wrap cat-page-grid">
-        <div class="cat-form-col">
-          <p class="sec-index reveal-fade">Catalogue</p>
-          <h2 class="display reveal-lines">Recevez notre catalogue complet.</h2>
-          <p class="lead reveal-fade">Renseignez vos coordonnées : un email pré-rempli s'ouvrira vers notre équipe, qui vous enverra le catalogue par retour avec nos tarifs professionnels.</p>
-          <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
-            <div class="field"><label for="c-name">Nom &amp; prénom</label><input id="c-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
-            <div class="field"><label for="c-company">Société</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
-            <div class="field-row">
-              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
-              <div class="field"><label for="c-phone">Téléphone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" /></div>
-            </div>
-            <label class="rgpd"><input type="checkbox" name="rgpd" required /><span>J'accepte d'être recontacté(e) au sujet de ma demande de catalogue.</span></label>
-            <button type="submit" class="btn btn-gold btn-block" data-magnetic>Recevoir le catalogue par email</button>
-            <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
-          </form>
-        </div>
-        <div class="cat-cover-wrap reveal-fade">
-          <img class="cat-cover-img" src="assets/img/catalogue-cover.jpg" alt="Première page du catalogue Di Dolce Desserts" />
-        </div>
       </div>
     </section>
     <section class="section contact-map">

@@ -548,11 +548,15 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .cat-form-section{padding-top:0}
 .cat-wrap{max-width:640px;margin-inline:auto}
 .cat-page-grid{display:grid;grid-template-columns:1fr;gap:2.6rem;align-items:center;max-width:1080px;margin-inline:auto}
-.cat-form-col .sec-index{color:var(--gold-l)}
-.cat-form-col h2{margin:.4rem 0 1rem}
-.cat-form-col .lead{color:var(--muted-d);margin-bottom:1.8rem}
 .cat-cover-wrap{display:flex;justify-content:center}
-.cat-cover-img{width:100%;max-width:380px;height:auto;display:block;border-radius:6px;box-shadow:0 40px 60px -24px rgba(0,0,0,.55)}
+.cat-cover{position:relative;aspect-ratio:210/297;width:100%;max-width:320px;background:var(--cream);
+  border-radius:6px;box-shadow:0 40px 60px -24px rgba(0,0,0,.5);overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.6rem 2rem}
+.cat-cover::after{content:"";position:absolute;right:0;top:0;bottom:0;width:12%;background:var(--ink)}
+.cat-cover-logo{height:42px;width:auto;aspect-ratio:496.03/170.81;color:var(--ink);margin-bottom:1.6rem}
+.cat-cover-tag{font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d)}
+.cat-cover-title{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.3rem);line-height:1.15;color:var(--ink);margin:2.2rem 0}
+.cat-cover-sub{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-l)}
 @media (min-width:900px){.cat-page-grid{grid-template-columns:1fr .85fr;gap:clamp(2.5rem,5vw,4.5rem)}}
 
 /* --- Carte Google Maps (page Contact) --- */
