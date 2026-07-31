@@ -334,6 +334,18 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .contact-cta .contact-list{max-width:540px;margin:2.4rem auto 0;text-align:left}
 .contact-info h1,.contact-info h2{margin:.4rem 0 1.4rem}
 .contact-info .contact-actions{justify-content:flex-start}
+.contact-intro{max-width:900px;margin-inline:auto;text-align:center}
+.contact-intro h1{margin:.4rem 0 1.4rem}
+.contact-intro .lead{margin-inline:auto;max-width:760px}
+.contact-intro .lead + .lead{margin-top:1rem}
+.contact-list--row{display:grid;grid-template-columns:1fr;gap:0;text-align:left;margin-top:2.6rem}
+.contact-list--row li{border-top:1px solid var(--line-d)}
+.contact-split{display:grid;grid-template-columns:1fr;gap:2rem;align-items:stretch;margin-top:clamp(2.6rem,5vw,4rem)}
+.contact-split .map-frame{margin-top:0;aspect-ratio:auto;min-height:380px;border-color:var(--line-d)}
+@media (min-width:900px){
+  .contact-list--row{grid-template-columns:repeat(2,1fr);column-gap:2.5rem}
+  .contact-split{grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3rem)}
+}
 .contact-list{margin-top:2.4rem;display:grid;gap:0}
 .contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--line-d);align-items:baseline}
 .ci-k{color:var(--gold-l)}

@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "32";
-const JS_V = "32";
+const CSS_V = "33";
+const JS_V = "33";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -676,22 +676,25 @@ ${sectorsHtml}
 {
   const body = `
     <section class="section contact">
-      <div class="wrap contact-grid">
-        <div class="contact-info">
-          <p class="sec-index reveal-fade">Contact</p>
-          <h1 class="display reveal-lines">Parlons de votre offre dessert</h1>
-          <p class="lead reveal-fade">Professionnel de l'alimentaire ou de la restauration ? Di Dolce Desserts vous accompagne avec des solutions adaptées à votre activité.</p>
-          <p class="lead reveal-fade">Tarifs professionnels, marque privée ou renseignements : contactez notre équipe par téléphone ou par e-mail. Nous vous répondrons rapidement.</p>
-          <div class="contact-actions reveal-fade">
-            <a class="btn btn-gold" href="tel:+33956597257" data-magnetic>Appeler le +33 9 56 59 72 57</a>
-            <a class="btn btn-line" href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>Écrire sur WhatsApp</a>
-          </div>
-          <ul class="contact-list reveal-fade">
-            <li><span class="ci-k">Bureau &amp; usine</span><span>22 route Saint Pierre, 27430 Porte de Seine, France</span></li>
-            <li><span class="ci-k">Téléphone</span><a href="tel:+33956597257" data-magnetic>+33 9 56 59 72 57</a></li>
-            <li><span class="ci-k">WhatsApp</span><a href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>+33 7 68 40 85 25</a></li>
-            <li><span class="ci-k">Email</span><a href="mailto:contact@didolcedesserts.com" data-magnetic>contact@didolcedesserts.com</a></li>
-          </ul>
+      <div class="wrap contact-intro">
+        <p class="sec-index reveal-fade">Contact</p>
+        <h1 class="display reveal-lines">Parlons de votre offre dessert</h1>
+        <p class="lead reveal-fade">Professionnel de l'alimentaire ou de la restauration ? Di Dolce Desserts vous accompagne avec des solutions adaptées à votre activité.</p>
+        <p class="lead reveal-fade">Tarifs professionnels, marque privée ou renseignements : contactez notre équipe par téléphone ou par e-mail. Nous vous répondrons rapidement.</p>
+        <div class="contact-actions reveal-fade">
+          <a class="btn btn-gold" href="tel:+33956597257" data-magnetic>Appeler le +33 9 56 59 72 57</a>
+          <a class="btn btn-line" href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>Écrire sur WhatsApp</a>
+        </div>
+        <ul class="contact-list contact-list--row reveal-fade">
+          <li><span class="ci-k">Bureau &amp; usine</span><span>22 route Saint Pierre, 27430 Porte de Seine, France</span></li>
+          <li><span class="ci-k">Téléphone</span><a href="tel:+33956597257" data-magnetic>+33 9 56 59 72 57</a></li>
+          <li><span class="ci-k">WhatsApp</span><a href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>+33 7 68 40 85 25</a></li>
+          <li><span class="ci-k">Email</span><a href="mailto:contact@didolcedesserts.com" data-magnetic>contact@didolcedesserts.com</a></li>
+        </ul>
+      </div>
+      <div class="wrap contact-split">
+        <div class="map-frame reveal-fade">
+          <iframe src="https://www.google.com/maps?q=22+route+Saint+Pierre,+27430+Porte+de+Seine,+France&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation Di Dolce Desserts — 22 route Saint Pierre, 27430 Porte de Seine"></iframe>
         </div>
         <form class="contact-form reveal-fade" id="leadForm" novalidate>
           <div class="field"><label for="l-name">Nom &amp; prénom</label><input id="l-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
@@ -706,14 +709,6 @@ ${sectorsHtml}
           <p class="form-note">Votre message ouvrira WhatsApp avec un texte pré-rempli vers notre équipe.</p>
           <div class="form-success" id="formSuccess" hidden><strong>Merci.</strong> Nous ouvrons WhatsApp pour finaliser votre message.</div>
         </form>
-      </div>
-    </section>
-    <section class="section contact-map">
-      <div class="wrap">
-        <p class="sec-index reveal-fade">Nous trouver</p>
-        <div class="map-frame reveal-fade">
-          <iframe src="https://www.google.com/maps?q=22+route+Saint+Pierre,+27430+Porte+de+Seine,+France&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation Di Dolce Desserts — 22 route Saint Pierre, 27430 Porte de Seine"></iframe>
-        </div>
       </div>
     </section>`;
   page("contact.html", "Contact — Di Dolce Desserts", "Contactez Di Dolce Desserts : téléphone, WhatsApp, email et adresse de notre bureau et usine en France.", body);
