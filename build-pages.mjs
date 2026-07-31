@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "33";
-const JS_V = "33";
+const CSS_V = "34";
+const JS_V = "34";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -658,11 +658,8 @@ ${sectorsHtml}
           <div class="form-success" id="catalogueSuccess" hidden><strong>Merci.</strong> Nous ouvrons votre messagerie pour finaliser la demande.</div>
         </form>
         <div class="cat-cover-wrap reveal-fade">
-          <div class="cat-cover">
-            <svg class="cat-cover-logo"><use href="#didolce-logo"></use></svg>
-            <p class="cat-cover-tag">Desserts italiens premium · 100% Halal</p>
-            <h3 class="cat-cover-title">Catalogue<br>Produits</h3>
-            <p class="cat-cover-sub">Fatto in Italia</p>
+          <div class="cat-book">
+            <img class="cat-book-cover" src="assets/img/catalogue-cover.jpg" alt="Couverture du catalogue Di Dolce Desserts" />
           </div>
         </div>
       </div>
@@ -685,12 +682,6 @@ ${sectorsHtml}
           <a class="btn btn-gold" href="tel:+33956597257" data-magnetic>Appeler le +33 9 56 59 72 57</a>
           <a class="btn btn-line" href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>Écrire sur WhatsApp</a>
         </div>
-        <ul class="contact-list contact-list--row reveal-fade">
-          <li><span class="ci-k">Bureau &amp; usine</span><span>22 route Saint Pierre, 27430 Porte de Seine, France</span></li>
-          <li><span class="ci-k">Téléphone</span><a href="tel:+33956597257" data-magnetic>+33 9 56 59 72 57</a></li>
-          <li><span class="ci-k">WhatsApp</span><a href="https://wa.me/33768408525" target="_blank" rel="noopener" data-magnetic>+33 7 68 40 85 25</a></li>
-          <li><span class="ci-k">Email</span><a href="mailto:contact@didolcedesserts.com" data-magnetic>contact@didolcedesserts.com</a></li>
-        </ul>
       </div>
       <div class="wrap contact-split">
         <div class="map-frame reveal-fade">

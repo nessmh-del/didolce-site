@@ -560,15 +560,19 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .cat-form-section{padding-top:0}
 .cat-wrap{max-width:640px;margin-inline:auto}
 .cat-page-grid{display:grid;grid-template-columns:1fr;gap:2.6rem;align-items:center;max-width:1080px;margin-inline:auto}
-.cat-cover-wrap{display:flex;justify-content:center}
-.cat-cover{position:relative;aspect-ratio:210/297;width:100%;max-width:320px;background:var(--cream);
-  border-radius:6px;box-shadow:0 40px 60px -24px rgba(0,0,0,.5);overflow:hidden;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.6rem 2rem}
-.cat-cover::after{content:"";position:absolute;right:0;top:0;bottom:0;width:12%;background:var(--ink)}
-.cat-cover-logo{height:42px;width:auto;aspect-ratio:496.03/170.81;color:var(--ink);margin-bottom:1.6rem}
-.cat-cover-tag{font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d)}
-.cat-cover-title{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.3rem);line-height:1.15;color:var(--ink);margin:2.2rem 0}
-.cat-cover-sub{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-l)}
+.cat-cover-wrap{display:flex;justify-content:center;perspective:1800px}
+.cat-book{position:relative;width:100%;max-width:400px;transform:rotateY(-7deg);transform-style:preserve-3d;
+  transition:transform .6s var(--ease)}
+.cat-book:hover{transform:rotateY(-2deg)}
+.cat-book-cover{display:block;width:100%;height:auto;border-radius:3px 9px 9px 3px;
+  box-shadow:0 2px 4px rgba(0,0,0,.3),0 12px 20px -8px rgba(0,0,0,.45),0 44px 60px -28px rgba(0,0,0,.75)}
+/* reliure (dos du livre) */
+.cat-book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:19px;z-index:2;border-radius:3px 0 0 3px;
+  background:linear-gradient(90deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.16) 38%,rgba(255,255,255,.14) 62%,rgba(0,0,0,.1) 100%)}
+/* tranche des pages */
+.cat-book::after{content:"";position:absolute;right:-7px;top:8px;bottom:8px;width:8px;border-radius:0 3px 3px 0;z-index:-1;
+  background:repeating-linear-gradient(90deg,#efe7d8 0 1.5px,#c9bfae 1.5px 3px);box-shadow:2px 0 6px -2px rgba(0,0,0,.5)}
+@media (max-width:640px){.cat-book{transform:none}}
 @media (min-width:900px){.cat-page-grid{grid-template-columns:1fr .85fr;gap:clamp(2.5rem,5vw,4.5rem)}}
 
 /* --- Carte Google Maps (page Contact) --- */
