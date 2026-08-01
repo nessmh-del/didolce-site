@@ -176,11 +176,20 @@
     row.addEventListener("scroll", () => {
       clearTimeout(tick);
       tick = setTimeout(() => {
-        let closest = 0, min = Infinity;
-        cards.forEach((c, i) => {
-          const d = Math.abs(c.offsetLeft - row.offsetLeft - row.scrollLeft);
-          if (d < min) { min = d; closest = i; }
-        });
+        const maxScroll = row.scrollWidth - row.clientWidth;
+        let closest;
+        if (row.scrollLeft >= maxScroll - 2) {
+          closest = cards.length - 1;
+        } else if (row.scrollLeft <= 2) {
+          closest = 0;
+        } else {
+          closest = 0;
+          let min = Infinity;
+          cards.forEach((c, i) => {
+            const d = Math.abs(c.offsetLeft - row.offsetLeft - row.scrollLeft);
+            if (d < min) { min = d; closest = i; }
+          });
+        }
         currentIndex = closest;
         dots.forEach((d, i) => d.classList.toggle("on", i === closest));
         updateNav();

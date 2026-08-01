@@ -5,8 +5,8 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "36";
-const JS_V = "36";
+const CSS_V = "37";
+const JS_V = "37";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="didolce-logo" viewBox="0 0 496.03 170.81">
@@ -226,7 +226,7 @@ export const PRODUCTS = [
   },
   {
     slug: "tiramisu-classico", name: "Tiramisù Classico", category: "Tiramisù",
-    img: "tiramisu-classico.jpg", color: "#f4ede2", cover: true,
+    img: "tiramisu-classico.png", color: "#ddc9a3",
     tagline: "La douceur italienne, l'exigence française.",
     desc: "Notre recette traditionnelle au mascarpone et au café, conditionnée en barquette prête à découper, disponible en formats individuels ou à partager.",
     detail: "Un tiramisù authentique, produit en France, décliné en plusieurs formats (100 g, 2 x 100 g, 120 g, 500 g) pour répondre aussi bien à la vente au détail qu'aux moments de partage en famille ou en restauration.",
