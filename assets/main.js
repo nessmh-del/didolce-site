@@ -146,11 +146,13 @@
       addEventListener(e, tryPlay, { passive: true, once: true }));
   })();
 
-  /* ---------- Nos parfums — grille swipable (drag souris + tactile) ---------- */
-  (function () {
-    const row = $("#flRow"); if (!row) return;
-    const dotsWrap = $("#flDots");
-    const prevBtn = $("#flPrev"), nextBtn = $("#flNext");
+  /* ---------- Grille swipable réutilisable (drag souris + tactile + pagination à points) ----------
+     Utilisée par "Nos parfums" (#flRow, 19 cartes) et "Nos collections" (#gmRow, 6 cartes) : même
+     mécanique d'interaction, seule la taille des cartes change (voir .gm-row dans style.css). */
+  function initSwipeRow(rowSel, dotsSel, prevSel, nextSel, ariaWord) {
+    const row = $(rowSel); if (!row) return;
+    const dotsWrap = $(dotsSel);
+    const prevBtn = $(prevSel), nextBtn = $(nextSel);
     const cards = $$(".fl-card", row);
 
     const scrollToIndex = (i) => {
@@ -160,7 +162,7 @@
 
     cards.forEach((_, i) => {
       const b = document.createElement("button");
-      b.setAttribute("aria-label", "Parfum " + (i + 1));
+      b.setAttribute("aria-label", ariaWord + " " + (i + 1));
       if (i === 0) b.classList.add("on");
       b.addEventListener("click", () => scrollToIndex(i));
       dotsWrap.appendChild(b);
@@ -213,7 +215,9 @@
       e.preventDefault();
     });
     row.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
-  })();
+  }
+  initSwipeRow("#flRow", "#flDots", "#flPrev", "#flNext", "Parfum");
+  initSwipeRow("#gmRow", "#gmDots", "#gmPrev", "#gmNext", "Collection");
 
   /* ================= GSAP ================= */
   const showAll = () => {

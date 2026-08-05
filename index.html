@@ -14,13 +14,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=37" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=44" />
 </head>
 <body>
   <script>
     document.documentElement.classList.add('js');
-    // filet de sécurité : retire le loader même si le JS principal échoue
     setTimeout(function(){ var i=document.getElementById('intro'); if(i) i.classList.add('done'); }, 2800);
   </script>
 
@@ -49,7 +48,6 @@
       <span class="intro-tag">L'excellence du dessert</span>
     </div>
   </div>
-
   <!-- HEADER -->
   <header class="nav" id="nav">
     <a href="#accueil" class="brand" data-cursor="hide" aria-label="Di Dolce Desserts — accueil">
@@ -78,10 +76,9 @@
         <li><a href="index.html" aria-current="page"><span class="nm-i">01</span> Accueil</a></li>
         <li><a href="about.html"><span class="nm-i">02</span> À propos de nous</a></li>
         <li><a href="desserts.html"><span class="nm-i">03</span> Nos desserts</a></li>
-        <li><a href="solutions.html"><span class="nm-i">04</span> Solutions professionnelles</a></li>
-        <li><a href="marque-privee.html"><span class="nm-i">05</span> Marque privée</a></li>
-        <li><a href="catalogue.html"><span class="nm-i">06</span> Catalogue</a></li>
-        <li><a href="contact.html"><span class="nm-i">07</span> Contact</a></li>
+        <li><a href="marque-privee.html"><span class="nm-i">04</span> Marque privée</a></li>
+        <li><a href="catalogue.html"><span class="nm-i">05</span> Catalogue</a></li>
+        <li><a href="contact.html"><span class="nm-i">06</span> Contact</a></li>
       </ul>
       <div class="nav-feature">
         <div class="nav-feature-img" style="background-image:url('assets/img/nav-feature.jpg')"></div>
@@ -163,12 +160,13 @@
       </div>
     </section>
 
-    <!-- 02 — À PROPOS DE NOUS -->
     <section class="section ti-intro" id="a-propos">
       <div class="wrap ap-wrap">
         <div class="ap-media reveal-fade">
           <div class="ti-media-glow" aria-hidden="true"></div>
-          <img src="assets/img/about.jpg" alt="Di Dolce Desserts" />
+          <video class="ap-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/img/about.jpg" disablepictureinpicture>
+            <source src="assets/video/about-tirimissu.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="ap-text">
           <p class="sec-index reveal-fade">02 — À propos de nous</p>
@@ -205,6 +203,34 @@
       </div>
     </section>
 
+    <!-- NOS COLLECTIONS (carrousel des gammes, au-dessus de "Nos parfums") -->
+    <section class="section showcase gammes-showcase" id="gammes">
+      <div class="wrap">
+        <div class="fl-head">
+          <p class="sec-index reveal-fade">Nos collections</p>
+          <h2 class="display fl-title reveal-lines">Six gammes, une même exigence de goût.</h2>
+          <p class="fl-sub reveal-fade">Tiramisù, cheesecake, mousse, profiterol, black forest, trois chocolat : découvrez nos collections en un coup d'œil avant d'explorer chaque parfum ci-dessous.</p>
+        </div>
+        <div class="fl-row gm-row" id="gmRow">
+          <a class="fl-card" href="desserts.html#tiramisu"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/caramel-speculoos-box-250g.jpg" alt="Gamme Tiramisù" loading="lazy" /></div><p class="fl-name">Tiramisù</p></a>
+          <a class="fl-card" href="desserts.html#cheesecake"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/cheesecake-speculoos.jpg" alt="Gamme Cheesecake" loading="lazy" /></div><p class="fl-name">Cheesecake</p></a>
+          <a class="fl-card" href="desserts.html#mousse"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/mousse-liegeoise.jpg" alt="Gamme Mousse" loading="lazy" /></div><p class="fl-name">Mousse</p></a>
+          <a class="fl-card" href="desserts.html#profiterol"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/profiterol.png" alt="Gamme Profiterol" loading="lazy" /></div><p class="fl-name">Profiterol</p></a>
+          <a class="fl-card" href="desserts.html#black-forest"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/blackforest.png" alt="Gamme Black Forest" loading="lazy" /></div><p class="fl-name">Black Forest</p></a>
+          <a class="fl-card" href="desserts.html#trois-chocolat"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/mousse.png" alt="Gamme Trois Chocolat" loading="lazy" /></div><p class="fl-name">Trois Chocolat</p></a>
+        </div>
+        <div class="fl-controls">
+          <button class="fl-arrow fl-prev" id="gmPrev" type="button" data-cursor="hide" aria-label="Collection précédente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="fl-dots" id="gmDots"></div>
+          <button class="fl-arrow fl-next" id="gmNext" type="button" data-cursor="hide" aria-label="Collection suivante">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- 03 — NOS PARFUMS -->
     <section class="section showcase" id="carte">
       <div class="wrap">
@@ -214,21 +240,25 @@
           <p class="fl-sub reveal-fade">Aucun mystère, juste une question de recette. Desserts disponibles en portion individuelle, avec des parfums qui évoluent selon les saisons.</p>
         </div>
         <div class="fl-row" id="flRow">
-          <a class="fl-card" href="produit-tiramisu-caramel-speculoos.html"><div class="fl-box fl-c1" style="background:#C9A277"><img src="assets/img/products/tiramisu-caramel.png" alt="Tiramisù Caramel-Spéculoos" /></div><p class="fl-name">Tiramisù Caramel-Spéculoos</p></a>
-          <a class="fl-card" href="produit-tiramisu-chocolat-speculoos.html"><div class="fl-box fl-c2" style="background:#5B4636"><img src="assets/img/products/tiramisu-chocolat.png" alt="Tiramisù Chocolat-Spéculoos" /></div><p class="fl-name">Tiramisù Chocolat-Spéculoos</p></a>
-          <a class="fl-card" href="produit-tiramisu-cookies-cream.html"><div class="fl-box fl-c3" style="background:#E7DFC9"><img src="assets/img/products/tiramisu-cookies.png" alt="Tiramisù Cookies & Cream" /></div><p class="fl-name">Tiramisù Cookies &amp; Cream</p></a>
-          <a class="fl-card" href="produit-tiramisu-mangue-passion.html"><div class="fl-box fl-c4" style="background:#E8C24A"><img src="assets/img/products/tiramisu-mangue.png" alt="Tiramisù Mangue Passion" /></div><p class="fl-name">Tiramisù Mangue Passion</p></a>
-          <a class="fl-card" href="produit-tiramisu-fraise.html"><div class="fl-box fl-c5" style="background:#D9AFAE"><img src="assets/img/products/tiramisu-fraise.png" alt="Tiramisù Fraise" /></div><p class="fl-name">Tiramisù Fraise</p></a>
-          <a class="fl-card" href="produit-tiramisu-dubai-chocolat.html"><div class="fl-box fl-c6 fl-cover" style=""><img src="assets/img/products/dubai.jpg" alt="Tiramisù Dubaï Chocolat" /></div><p class="fl-name">Tiramisù Dubaï Chocolat</p></a>
+          <a class="fl-card" href="produit-tiramisu-caramel-speculoos.html"><div class="fl-box" style="background:#C9A277"><img src="assets/img/products/tiramisu-caramel.png" alt="Tiramisù Caramel-Spéculoos" /></div><p class="fl-name">Tiramisù Caramel-Spéculoos</p></a>
+          <a class="fl-card" href="produit-tiramisu-chocolat-speculoos.html"><div class="fl-box" style="background:#5B4636"><img src="assets/img/products/tiramisu-chocolat.png" alt="Tiramisù Chocolat-Spéculoos" /></div><p class="fl-name">Tiramisù Chocolat-Spéculoos</p></a>
+          <a class="fl-card" href="produit-tiramisu-cookies-cream.html"><div class="fl-box" style="background:#E7DFC9"><img src="assets/img/products/tiramisu-cookies.png" alt="Tiramisù Cookies & Cream" /></div><p class="fl-name">Tiramisù Cookies & Cream</p></a>
+          <a class="fl-card" href="produit-tiramisu-choco-caramel.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/tiramisu-choco-caramel.jpg" alt="Tiramisù Choco-Caramel" /></div><p class="fl-name">Tiramisù Choco-Caramel</p></a>
+          <a class="fl-card" href="produit-tiramisu-mangue-passion.html"><div class="fl-box" style="background:#E8C24A"><img src="assets/img/products/tiramisu-mangue.png" alt="Tiramisù Mangue Passion" /></div><p class="fl-name">Tiramisù Mangue Passion</p></a>
+          <a class="fl-card" href="produit-tiramisu-fraise.html"><div class="fl-box" style="background:#D9AFAE"><img src="assets/img/products/tiramisu-fraise.png" alt="Tiramisù Fraise" /></div><p class="fl-name">Tiramisù Fraise</p></a>
+          <a class="fl-card" href="produit-tiramisu-bueno.html"><div class="fl-box" style="background:#A97B4C"><img src="assets/img/products/tiramisu-bueno.png" alt="Tiramisù Bueno" /></div><p class="fl-name">Tiramisù Bueno</p></a>
+          <a class="fl-card" href="produit-tiramisu-dubai-chocolat.html"><div class="fl-box fl-cover" style="background:#232321"><img src="assets/img/products/dubai.jpg" alt="Tiramisù Dubaï Chocolat" /></div><p class="fl-name">Tiramisù Dubaï Chocolat</p></a>
+          <a class="fl-card" href="produit-tiramisu-choco-pistache.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/tiramisu-choco-pistache.jpg" alt="Tiramisù Choco-Pistache" /></div><p class="fl-name">Tiramisù Choco-Pistache</p></a>
+          <a class="fl-card" href="produit-tiramisu-coco-rocher.html"><div class="fl-box" style="background:#EAD9A0"><img src="assets/img/products/tiramisu-mangue.png" alt="Tiramisù Coco Rocher" /></div><p class="fl-name">Tiramisù Coco Rocher</p></a>
           <a class="fl-card" href="produit-tiramisu-classico.html"><div class="fl-box" style="background:#ddc9a3"><img src="assets/img/products/tiramisu-classico.png" alt="Tiramisù Classico" /></div><p class="fl-name">Tiramisù Classico</p></a>
-          <a class="fl-card" href="produit-cheesecake-mangue-coco.html"><div class="fl-box fl-c7" style="background:#E0954A"><img src="assets/img/products/cheesecake-mangue.png" alt="Cheesecake Mangue-Coco" /></div><p class="fl-name">Cheesecake Mangue-Coco</p></a>
-          <a class="fl-card" href="produit-cheesecake-fraise.html"><div class="fl-box fl-c8" style="background:#D97B62"><img src="assets/img/products/cheesecake-fraise.png" alt="Cheesecake Fraise" /></div><p class="fl-name">Cheesecake Fraise</p></a>
-          <a class="fl-card" href="produit-cheesecake-framboise.html"><div class="fl-box fl-c9" style="background:#A8495C"><img src="assets/img/products/cheesecake-framboise.png" alt="Cheesecake Framboise" /></div><p class="fl-name">Cheesecake Framboise</p></a>
-          <a class="fl-card" href="produit-mousse-au-chocolat.html"><div class="fl-box fl-c10 fl-cover" style=""><img src="assets/img/products/mousse.png" alt="Mousse au Chocolat" /></div><p class="fl-name">Mousse au Chocolat</p></a>
-          <a class="fl-card" href="produit-profiterol.html"><div class="fl-box fl-c11 fl-cover" style=""><img src="assets/img/products/profiterol.png" alt="Profiterol" /></div><p class="fl-name">Profiterol</p></a>
-          <a class="fl-card" href="produit-black-forest.html"><div class="fl-box fl-c12 fl-cover" style=""><img src="assets/img/products/blackforest.png" alt="Black Forest" /></div><p class="fl-name">Black Forest</p></a>
-          <a class="fl-card" href="produit-panna-cotta-caramel.html"><div class="fl-box fl-c13 fl-cover" style=""><img src="assets/img/products/pannacotta.png" alt="Panna Cotta Caramel" /></div><p class="fl-name">Panna Cotta Caramel</p></a>
-          <a class="fl-card" href="produit-riz-au-lait.html"><div class="fl-box fl-c14 fl-cover" style=""><img src="assets/img/products/rizaulait.png" alt="Riz au Lait" /></div><p class="fl-name">Riz au Lait</p></a>
+          <a class="fl-card" href="produit-cheesecake-mangue-coco.html"><div class="fl-box" style="background:#E0954A"><img src="assets/img/products/cheesecake-mangue.png" alt="Cheesecake Mangue-Coco" /></div><p class="fl-name">Cheesecake Mangue-Coco</p></a>
+          <a class="fl-card" href="produit-cheesecake-fraise.html"><div class="fl-box" style="background:#D97B62"><img src="assets/img/products/cheesecake-fraise.png" alt="Cheesecake Fraise" /></div><p class="fl-name">Cheesecake Fraise</p></a>
+          <a class="fl-card" href="produit-cheesecake-speculoos.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/cheesecake-speculoos.jpg" alt="Cheesecake Spéculoos" /></div><p class="fl-name">Cheesecake Spéculoos</p></a>
+          <a class="fl-card" href="produit-mousse-au-chocolat.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/mousse.png" alt="Mousse au Chocolat" /></div><p class="fl-name">Mousse au Chocolat</p></a>
+          <a class="fl-card" href="produit-mousse-liegeoise.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/mousse-liegeoise.jpg" alt="Mousse Liégeoise" /></div><p class="fl-name">Mousse Liégeoise</p></a>
+          <a class="fl-card" href="produit-profiterol.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/profiterol.png" alt="Profiterol" /></div><p class="fl-name">Profiterol</p></a>
+          <a class="fl-card" href="produit-black-forest.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/blackforest.png" alt="Black Forest" /></div><p class="fl-name">Black Forest</p></a>
+          <a class="fl-card" href="produit-trois-chocolat.html"><div class="fl-box fl-cover" style="background:#f8eff2"><img src="assets/img/products/mousse.png" alt="Trois Chocolat" /></div><p class="fl-name">Trois Chocolat</p></a>
         </div>
         <div class="fl-controls">
           <button class="fl-arrow fl-prev" id="flPrev" type="button" data-cursor="hide" aria-label="Parfum précédent">
@@ -242,7 +272,6 @@
       </div>
     </section>
 
-    <!-- FORMATS D'EMBALLAGE B2C -->
     <section class="section b2c-section">
       <div class="wrap">
         <div class="b2c-head">
@@ -261,8 +290,8 @@
             </div>
             <div class="b2c-cards">
               <div class="b2c-card reveal-fade">
-                <div class="b2c-card-media"><img src="assets/img/b2c-120g.jpg" alt="Tiramisù Classico 120 g" loading="lazy" /></div>
-                <span class="b2c-weight">120 g</span>
+                <div class="b2c-card-media"><img src="assets/img/b2c-250g.jpg" alt="Tiramisù Classico 250 g" loading="lazy" /></div>
+                <span class="b2c-weight">250 g</span>
                 <span class="b2c-pers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg> 1-2 pers.</span>
               </div>
               <div class="b2c-card reveal-fade">
@@ -297,37 +326,11 @@
       </div>
     </section>
 
-    <!-- 04 — ENGAGEMENT -->
-    <section class="section engagement" id="engagement">
-      <div class="wrap">
-        <div class="engage-top">
-          <p class="sec-index reveal-fade">04 — Notre engagement</p>
-          <h2 class="display reveal-lines">Deux promesses,<br>zéro compromis.</h2>
-        </div>
-        <div class="engage-rows">
-          <div class="engage-row reveal-fade">
-            <span class="engage-emblem">100<small>%</small></span>
-            <div class="engage-body">
-              <h3 class="display">Une gamme 100% Halal</h3>
-              <p>Toutes nos recettes sont élaborées sans alcool ni ingrédient d'origine porcine. Un sourcing rigoureux pour proposer chaque dessert à l'ensemble de votre clientèle, sans compromis sur le goût.</p>
-            </div>
-          </div>
-          <div class="engage-row reveal-fade">
-            <span class="engage-emblem">48<small>h</small></span>
-            <div class="engage-body">
-              <h3 class="display">Livraison 24/48h en France</h3>
-              <p>Nous expédions partout en France métropolitaine sous 24 à 48h, en chaîne du froid maîtrisée. Stock permanent, réassort rapide : vos cartes ne sont jamais en rupture de dessert.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 — LA PROMESSE -->
+    <!-- 04 — LA PROMESSE -->
     <section class="section promise" id="promesse">
       <div class="wrap promise-grid">
         <div class="promise-lead">
-          <p class="sec-index reveal-fade">05 — La promesse</p>
+          <p class="sec-index reveal-fade">04 — La promesse</p>
           <h2 class="display reveal-lines">Le dessert prêt à servir, sans le moindre compromis.</h2>
           <p class="lead reveal-fade">Nos desserts arrivent finis dans votre cuisine : vous n'avez plus qu'à dresser et servir. Le goût de la pâtisserie italienne, la régularité de l'industriel, la tranquillité du 100% Halal.</p>
         </div>
@@ -342,11 +345,11 @@
       </div>
     </section>
 
-    <!-- 06 — SAVOIR-FAIRE / POURQUOI -->
+    <!-- 05 — SAVOIR-FAIRE / POURQUOI -->
     <section class="section why" id="why">
       <div class="wrap">
         <div class="why-top">
-          <p class="sec-index reveal-fade">06 — Pourquoi nous</p>
+          <p class="sec-index reveal-fade">05 — Pourquoi nous</p>
           <h2 class="display reveal-lines">Pensé pour les professionnels exigeants.</h2>
         </div>
         <ul class="why-list">
@@ -360,13 +363,13 @@
       </div>
     </section>
 
-    <!-- 07 — NOTRE MAISON -->
+    <!-- 06 — NOTRE MAISON -->
     <section class="section maison" id="maison">
       <div class="wrap maison-grid">
         <div class="maison-txt">
-          <p class="sec-index reveal-fade">07 — Notre maison</p>
+          <p class="sec-index reveal-fade">06 — Notre maison</p>
           <h2 class="display reveal-lines">Une histoire de gourmandise et d'exigence.</h2>
-          <p class="lead reveal-fade">Née de l'envie de rendre le grand dessert accessible à tous, Di Dolce Desserts conçoit et distribue des desserts italiens premium, entièrement Halal, pour les professionnels de la restauration et de la distribution. Basés en Île-de-France, nous livrons aujourd'hui partout en France.</p>
+          <p class="lead reveal-fade">Née de l'envie de rendre le grand dessert accessible à tous, Di Dolce Desserts conçoit et distribue des desserts italiens premium, entièrement Halal, pour les professionnels de la restauration et de la distribution. Basés en Normandie, nous livrons aujourd'hui partout en France.</p>
           <div class="maison-stats reveal-fade">
             <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-lbl">familles de desserts</span></div>
             <div class="stat"><span class="stat-num" data-count="48" data-suffix="h">0</span><span class="stat-lbl">livraison max</span></div>
@@ -408,7 +411,7 @@
           <p class="lead reveal-fade">Renseignez vos coordonnées ci-dessous : un email pré-rempli s'ouvrira vers notre équipe, qui vous enverra le catalogue par retour avec nos tarifs professionnels.</p>
         </div>
         <form class="contact-form reveal-fade" id="catalogueForm" novalidate>
-          <div class="field"><label for="ci-name">Nom &amp; prénom</label><input id="ci-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
+          <div class="field"><label for="ci-name">Nom & prénom</label><input id="ci-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" /></div>
           <div class="field"><label for="ci-company">Société</label><input id="ci-company" name="company" type="text" autocomplete="organization" placeholder="Restaurant, enseigne, grossiste…" /></div>
           <div class="field-row">
             <div class="field"><label for="ci-email">Email</label><input id="ci-email" name="email" type="email" required autocomplete="email" placeholder="vous@societe.fr" /></div>
@@ -433,7 +436,6 @@
           <span class="fc-k">Maison</span>
           <a href="about.html">À propos de nous</a>
           <a href="desserts.html">Nos desserts</a>
-          <a href="solutions.html">Solutions professionnelles</a>
           <a href="marque-privee.html">Marque privée</a>
           <a href="catalogue.html">Catalogue</a>
         </div>
@@ -472,6 +474,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="assets/main.js?v=37"></script>
+  <script src="assets/main.js?v=41"></script>
 </body>
 </html>
