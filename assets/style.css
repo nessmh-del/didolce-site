@@ -59,7 +59,10 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .wrap{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--pad)}
 .section{padding-block:var(--sect);position:relative}
 
-/* dark chapters */
+/* dark chapters — NB : .contact ici ne vise QUE la section-teaser "Contact" de la home
+   (index.html, id="contact", fond volontairement sombre). La page contact.html a sa propre
+   section .contact-page (claire, voir bloc CONTACT plus bas) — les deux ne partagent plus
+   la même classe depuis la V6, pour pouvoir les théma­tiser indépendamment. */
 .quote,.contact,.footer{background:var(--ink);color:var(--cream)}
 .quote .sec-index,.contact .sec-index{color:var(--gold-l)}
 .contact .lead{color:var(--muted-d)}
@@ -256,10 +259,16 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
   .fl-name{font-size:1rem}
 }
 
-/* --- NOS COLLECTIONS — variante "format paysage" du carrousel .fl-row (6 gammes) --- */
-.gm-row .fl-card{width:min(78vw,440px)}
-.gm-row .fl-box{aspect-ratio:4/3;border-radius:20px;margin-bottom:1rem}
-.gm-row .fl-name{font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase}
+/* --- NOS COLLECTIONS — variante "format paysage" du carrousel .fl-row (6 gammes) ---
+   Cartes réduites (78vw/440px → 30vw/155px) pour que les 6 gammes tiennent sur une seule
+   ligne sans swipe dès ~1280px de large (container 1280px + paddings cumulés .wrap/.fl-row
+   + gap 1.4rem×5 ≈ 1088px dispo pour les cartes → ~162px max théorique/carte, 155px retenu
+   pour garder un peu d'air). Alignement à gauche = comportement flex par défaut (.fl-row n'a
+   pas de justify-content), explicité ici pour verrouiller l'intention. */
+.gm-row{justify-content:flex-start}
+.gm-row .fl-card{width:min(30vw,155px)}
+.gm-row .fl-box{aspect-ratio:4/3;border-radius:12px;margin-bottom:.6rem}
+.gm-row .fl-name{font-size:.8rem;letter-spacing:.05em;text-transform:uppercase}
 
 /* =========================================================================
    03 — ENGAGEMENT
@@ -281,7 +290,7 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .tiramisu-intro{background:var(--white,#fff);padding-block:clamp(3.5rem,8vw,7rem)}
 .tiramisu-intro .wrap{max-width:1000px}
 .ti-imgwrap{display:flex;justify-content:center;margin-bottom:clamp(2.5rem,6vw,4rem)}
-.ti-imgwrap img{width:min(100%,620px);height:auto;display:block}
+.ti-imgwrap img{width:min(100%,760px);height:auto;display:block}
 .ti-media-glow{display:none}
 .ti-content h2{margin-bottom:1.6rem}
 .ti-copy p{color:var(--muted-l);font-size:1.05rem;line-height:1.65;margin-bottom:1.4rem}
@@ -348,7 +357,7 @@ h3.display{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .contact-list--row{display:grid;grid-template-columns:1fr;gap:0;text-align:left;margin-top:2.6rem}
 .contact-list--row li{border-top:1px solid var(--line-d)}
 .contact-split{display:grid;grid-template-columns:1fr;gap:2rem;align-items:stretch;margin-top:clamp(2.6rem,5vw,4rem)}
-.contact-split .map-frame{margin-top:0;aspect-ratio:auto;min-height:380px;border-color:var(--line-d)}
+.contact-split .map-frame{margin-top:0;aspect-ratio:auto;min-height:380px;border-color:var(--line-l)}
 @media (min-width:900px){
   .contact-list--row{grid-template-columns:repeat(2,1fr);column-gap:2.5rem}
   .contact-split{grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3rem)}

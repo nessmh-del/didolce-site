@@ -5,7 +5,7 @@
    contact.html, desserts.html, et une page par produit (produit-*.html). */
 import { writeFileSync } from "node:fs";
 
-const CSS_V = "44";
+const CSS_V = "46";
 const JS_V = "41";
 
 const LOGO_SVG = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -908,7 +908,7 @@ function catalogueMeta() {
    ======================================================================== */
 function contactBody() {
   return `
-    <section class="section contact">
+    <section class="section contact-page">
       <div class="wrap contact-intro">
         <p class="sec-index reveal-fade">Contact</p>
         <h1 class="display reveal-lines">Parlons de votre offre dessert</h1>
@@ -1207,9 +1207,9 @@ function homeMeta() {
   return {
     title: "Di Dolce Desserts — La carte des desserts italiens premium, 100% Halal",
     desc: "Di Dolce Desserts : desserts italiens premium 100% Halal pour les professionnels. Tiramisù, cheesecakes, mousses, profiterol, black forest. Livraison 24/48h partout en France.",
-    ogTitle: "Di Dolce Desserts — Desserts premium 100% Halal",
+    ogTitle: "Di Dolce Desserts — L'excellence du dessert",
     ogDesc: "La carte des desserts italiens premium, 100% Halal, livrés en 24/48h partout en France.",
-    ogImage: "assets/img/hero.jpg",
+    ogImage: "assets/img/og-logo.jpg",
     introTimeout: 2800,
   };
 }
