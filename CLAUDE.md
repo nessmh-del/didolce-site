@@ -302,6 +302,34 @@ produit ou de la structure header/footer commune. Il régénère **toutes** les 
 - Envisager d'ajouter les variantes de parfums manquantes si le client fournit leurs photos
 - Mentions légales / SIRET encore en placeholder ("à compléter") à finaliser avec le client
 
+## Sécurité du repo (mise en place le 2026-08-15)
+
+Repo GitHub public → tout ce qui suit est gratuit. À garder à l'esprit pour les prochaines
+sessions (pas besoin de repasser dessus sauf si un check casse ou qu'un nouveau besoin apparaît) :
+
+- **`.github/dependabot.yml`** : updates hebdo npm + github-actions.
+- **`.github/workflows/codeql.yml`** : analyse statique JS/Node (couvre surtout `build-pages.mjs`).
+- **`.github/workflows/dependency-review.yml`** : bloque les PR qui introduisent une dépendance
+  vulnérable (severity high+).
+- **`.github/workflows/npm-audit.yml`** : `npm audit --audit-level=high` à chaque push/PR + hebdo.
+- **`.github/workflows/scorecard.yml`** : score de sécurité global du repo (OSSF Scorecard).
+- **Réglages repo GitHub activés via l'API** (`gh api repos/.../…`, pas des fichiers versionnés,
+  donc invisibles en local) : secret scanning, push protection, secret scanning validity checks,
+  vulnerability alerts, Dependabot security updates automatiques. HTTPS déjà forcé nativement par
+  GitHub Pages (`https_enforced: true`).
+- **`package.json`** créé à la racine (site n'a aucune dépendance npm réelle — juste un script
+  Node natif — mais un `package.json` minimal est nécessaire pour que les workflows npm
+  fonctionnent).
+- **CSP + headers de sécurité en `<meta>`** dans `head()` (`build-pages.mjs`) : GitHub Pages ne
+  permet pas de headers HTTP custom, donc `Content-Security-Policy`, `X-Content-Type-Options` et
+  `referrer` policy sont posés en meta tags dans le HTML généré. La CSP autorise explicitement
+  `cdnjs.cloudflare.com` (GSAP) + `cdn.jsdelivr.net` (Lenis) en `script-src`, et
+  `fonts.googleapis.com`/`fonts.gstatic.com` en style/font-src — **si un nouveau script/police/CDN
+  externe est ajouté au site, il faut aussi l'ajouter à cette CSP** (`build-pages.mjs`, dans
+  `head()`) sinon il sera silencieusement bloqué par le navigateur en prod.
+- Vérifié après coup (2026-08-15) : screenshot local + console + network après régénération des
+  pages, aucune requête bloquée par la CSP, rendu identique à avant.
+
 ## Fichier de modification "V5" (traité le 2026-08-04)
 
 `Modification.pages` (non versionné, exclu de git, toujours à la racine de `didolce-site/`)
