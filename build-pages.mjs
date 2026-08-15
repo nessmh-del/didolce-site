@@ -62,6 +62,9 @@ function head({ file, title, desc, ogImage = "assets/img/hero.jpg", ogTitle, ogD
   <title>${title}</title>
   <meta name="description" content="${desc}" />
   <meta name="theme-color" content="#17120e" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:;" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="icon" href="assets/img/logo.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${ogTitle || title}" />

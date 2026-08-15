@@ -1,0 +1,10 @@
+{
+  "name": "didolce-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site Di Dolce Desserts — build-pages.mjs génère les pages statiques",
+  "type": "module",
+  "scripts": {
+    "build": "node build-pages.mjs"
+  }
+}
